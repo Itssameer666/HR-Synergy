@@ -36,9 +36,8 @@ services:
       hrms-db:
         condition: service_healthy
     environment:
-      DB_HOST: hrms-db
-      DB_PORT: "3306"
-      DB_NAME: hrmsdb
+      DB_URL: "jdbc:mysql://hrms-db:3306/hrmsdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true"
+      DB_DRIVER: "com.mysql.cj.jdbc.Driver"
       DB_USERNAME: root
       DB_PASSWORD: sameer@1234
       PORT: "8181"

@@ -26,18 +26,25 @@ RUN ./mvnw clean package -DskipTests
 FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 
-# Create a non-privileged user for security compliance
-RUN groupadd -r hrmsgroup && useradd -r -g hrmsgroup hrmsuser
+# Create a non-privileged user and data directory
+RUN groupadd -r hrmsgroup && useradd -r -g hrmsgroup hrmsuser \
+    && mkdir -p /app/data \
+    && chown -R hrmsuser:hrmsgroup /app
 
 # Copy the built jar from the builder stage
 COPY --from=builder /app/target/hrms-*.jar app.jar
-RUN chown -R hrmsuser:hrmsgroup /app
+RUN chown hrmsuser:hrmsgroup app.jar
 
 USER hrmsuser:hrmsgroup
 
-# Default server port
+# Cloud environment settings
 ENV PORT=8181
+ENV DB_URL=jdbc:h2:file:/app/data/hrmsdb;MODE=MySQL;DATABASE_TO_LOWER=TRUE;AUTO_SERVER=TRUE;DB_CLOSE_DELAY=-1
+ENV DB_DRIVER=org.h2.Driver
+ENV DB_USERNAME=sa
+ENV DB_PASSWORD=
+
 EXPOSE 8181
 
-# Optimize JVM startup and memory
-ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
+# Optimize JVM startup and limit memory for 512MB free tier containers
+ENTRYPOINT ["java", "-Xmx380m", "-Xms128m", "-Djava.security.egd=file:/dev/./urandom", "-jar", "app.jar"]
