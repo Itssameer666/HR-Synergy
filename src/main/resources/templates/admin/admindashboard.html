@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
+<head>
+<main>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Synergy - Enquiry Management</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-purple: #6f42c1;
+            --gradient-header: linear-gradient(135deg, #6c5ce7, #8c7ae6);
+            --card-blue: #4a69bd;
+            --card-orange: #f0932b;
+            --card-green: #2ed573;
+            --card-purple: #9b59b6;
+            --footer-bg: #0f172a;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        .navbar-brand img {
+            height: 40px;
+        }
+        .brand-text {
+            color: #6c5ce7;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+        .brand-subtext {
+            font-size: 0.75rem;
+            color: #6c757d;
+        }
+        .nav-link {
+            font-weight: 500;
+            color: #495057 !important;
+            margin: 0 8px;
+        }
+        .nav-link:hover {
+            color: var(--primary-purple) !important;
+        }
+        .btn-login {
+            background-color: #5352ed;
+            color: white;
+            border-radius: 20px;
+            padding: 6px 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(83, 82, 237, 0.3);
+        }
+        .btn-login:hover {
+            background-color: #3c40c6;
+            color: white;
+        }
+
+        /* Top Hero Header */
+        .hero-banner {
+            background: linear-gradient(135deg, #614ef6, #9b51e0);
+            border-radius: 16px;
+            color: white;
+            padding: 24px 30px;
+        }
+        .icon-box-bg {
+            background: rgba(255, 255, 255, 0.2);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        .btn-back {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            border-radius: 20px;
+            padding: 6px 18px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(5px);
+        }
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        /* Stat Cards */
+        .stat-card {
+            border: none;
+            border-radius: 16px;
+            color: white;
+            padding: 20px;
+            height: 100%;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .stat-card.blue { background-color: #4a77e5; }
+        .stat-card.orange { background-color: #f2994a; }
+        .stat-card.green { background-color: #27ae60; }
+        .stat-card.purple { background-color: #9b51e0; }
+
+        .stat-icon-wrapper {
+            background: rgba(255, 255, 255, 0.25);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+        .stat-card .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .stat-card .stat-label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        /* Table Card Container */
+        .table-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #eef2f5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+        .table-header-title {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #212529;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Table Styling */
+        .custom-table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+        }
+        .custom-table thead th {
+            background-color: #614ef6;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 12px 10px;
+            border: none;
+            white-space: nowrap;
+        }
+        .custom-table thead th:first-child { border-top-left-radius: 6px; border-bottom-left-radius: 6px; }
+        .custom-table thead th:last-child { border-top-right-radius: 6px; border-bottom-right-radius: 6px; }
+        .sort-icon {
+            font-size: 0.65rem;
+            margin-left: 4px;
+            opacity: 0.7;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: var(--footer-bg);
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+        footer h6 {
+            color: white;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        footer a {
+            color: #a0aec0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.2s;
+        }
+        footer a:hover {
+            color: white;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fa-solid fa-shapes text-primary fs-2 me-2"></i>
+                <div>
+                    <div class="brand-text">HR Synergy</div>
+                    <div class="brand-subtext">HR Management System</div>
+                </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-dark" id="navbarNav ">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Join Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link me-3" href="#">Contact</a></li>
+                    <li class="nav-item mt-2 mt-lg-0">
+                        <a href="#" class="btn btn-login"><i class="fa-solid fa-right-to-bracket me-1"></i> Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container my-4">
+
+        <!-- Banner Header -->
+        <div class="hero-banner d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
+            <div class="d-flex align-items-center gap-3">
+                <div class="icon-box-bg">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <div>
+                    <h3 class="mb-0 fw-bold fs-4">Enquiry Management</h3>
+                    <small class="opacity-75">Manage and resolve customer enquiries efficiently</small>
+                </div>
+            </div>
+            <a href="#" class="btn btn-back text-decoration-none">
+                <i class="fa-solid fa-arrow-left me-1"></i> Back to Dashboard
+            </a>
+        </div>
+
+        <!-- 4 Summary Metric Cards -->
+        <div class="row g-3 mb-4">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card blue">
+                    <div class="stat-icon-wrapper">
+                        <i class="fa-solid fa-inbox"></i>
+                    </div>
+                    <div class="stat-number" th:text="${usercounter}"></div>
+                    <div class="stat-label">Total Enquiries</div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card orange">
+                    <div class="stat-icon-wrapper">
+                        <i class="fa-regular fa-clock"></i>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Pending Requests</div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card green">
+                    <div class="stat-icon-wrapper">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="stat-number">0</div>
+                    <div class="stat-label">Resolved Requests</div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="stat-card purple">
+                    <div class="stat-icon-wrapper">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">Support Requests</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Table View Container -->
+        <div class="table-card">
+            <div class="table-header-title mb-4">
+                <i class="fa-solid fa-list-ul"></i> All Enquiries
+            </div>
+
+            <!-- Table Controls Row -->
+            <div class="row align-items-center mb-3 g-2">
+                <div class="col-12 col-sm-6 d-flex align-items-center gap-2">
+                    <span class="text-secondary small">Show</span>
+                    <select class="form-select form-select-sm style-select" style="width: 70px;">
+                        <option selected>10</option>
+                        <option>25</option>
+                        <option>50</option>
+                    </select>
+                    <span class="text-secondary small">entries</span>
+                </div>
+                <div class="col-12 col-sm-6 ms-auto" style="max-width: 250px;">
+                    <div class="input-group input-group-sm">
+                        <span class="input-group-text bg-light border-end-0"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
+                        <input type="text" class="form-control bg-light border-start-0" placeholder="Search enquiries...">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsive Table Structure -->
+            <div class="table-responsive">
+                <table class="table custom-table align-middle text-center text-info">
+                    <thead>
+                        <tr>
+                            <th>ID <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>NAME <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>EMAIL <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>CONTACT NO. <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>SUBJECT <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>MESSAGE <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>DATE <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>STATUS <i class="fa-solid fa-sort sort-icon"></i></th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Empty Data Placeholder -->
+                        <tr>
+                            <td colspan="9" class="py-5 text-muted small">
+                                No enquiries available.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Table Pagination & Counter -->
+            <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap gap-2">
+                <div class="text-muted small">
+                    No enquiries found
+                </div>
+                <div class="d-flex gap-1">
+                    <button class="btn btn-sm btn-light border" disabled><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="btn btn-sm btn-light border" disabled><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+</main>
+</body>
+</html>

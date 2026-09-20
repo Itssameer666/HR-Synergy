@@ -1,0 +1,38 @@
+<html lang="en" th:replace="~{user/userbase :: layout(~{::main})}">
+<body>
+ <main>
+ 	<h2 style="color:white;text-align:center; background-color:blue;" class="py-1">View Your Profile</h2>
+ 	<hr/>
+ 	<table class="table table-bordered" style="width:80%;margin:auto;">
+ 	<tr>
+ 	<td>Name</td>
+ 	<td th:text="${user.name}"></td>
+ 	</tr>
+ 	<tr>
+ 		<td>Contact No</td>
+ 	<td th:text="${user.contactno}"></td>
+ 	</tr>
+ 	<tr>
+ 		<td>Email Address</td>
+ 	<td th:text="${user.emailaddress}"></td>
+ 	</tr>
+ 	<tr>
+ 		<td>Qualification</td>
+ 	<td th:text="${user.qualification}"></td>
+ 	</tr>
+ 	<tr>
+ 		<td>Experience</td>
+ 	<td th:text="${user.experience}"></td>
+ 	</tr>
+ 	<tr>
+ 		<td>Key Skill</td>
+ 	<td th:text="${user.keyskill}"></td>
+ 	</tr>
+ 	<tr>
+ 		<td>Address</td>
+ 	<td th:text="${user.address}"></td>
+ 	</tr>
+ 	</table>
+ </main>
+</body>
+</html>

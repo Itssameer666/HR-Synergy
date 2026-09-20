@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" th:fragment="layout(content)">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Karam - HRMS</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css"
+	integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" th:href="@{/css/joinus.css}">
+<link rel="stylesheet" th:href="@{/css/about.css}">
+
+</head>
+<body>
+	<div class="container-fluid">
+
+		<div class="row mt-2">
+			<div class="col-sm-12 p-0">
+				<!-- navbar start -->
+				<nav class="navbar navbar-expand-lg sticky-top">
+					<div class="container">
+						<a class="navbar-brand d-flex align-items-center" href="#">
+							<div
+								class="bg-primary text-white p-2 rounded-circle me-2 d-flex align-items-center justify-content-center"
+								style="width: 38px; height: 38px;">
+								<img src="/images/logo.jpeg" style="height:40px;width:40px;"/>
+							</div>
+							<div>
+								<span class="fw-bold text-dark d-block leading-none">HR
+									Synergy</span> <small class="text-muted d-block"
+									style="font-size: 10px;">HR Management System</small>
+							</div>
+						</a>
+
+						<button class="navbar-toggler" type="button"
+							data-bs-toggle="collapse" data-bs-target="#navbarNav">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<ul class="navbar-nav ms-auto align-items-lg-center">
+								<li class="nav-item"><a class="nav-link" href="/">HOME</a></li>
+								<li class="nav-item"><a class="nav-link" href="/jobs">JOBS</a></li>
+								<li class="nav-item"><a class="nav-link" href="/aboutus">ABOUT
+										US</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="/registration">REGISTRATION</a></li>
+								<li class="nav-item"><a class="nav-link" href="/joinus">JOIN
+										US</a></li>
+								<li class="nav-item"><a class="nav-link" href="/adminlogin">ADMIN
+										LOGIN</a></li>
+								<li class="nav-item"><a class="nav-link" href="/contactus">CONTACT
+										US</a></li>
+								<li class="nav-item ms-lg-3 mt-2 mt-lg-0"><a
+									class="btn btn-header-login" href="/login"><i
+										class="fa-solid fa-right-to-bracket me-1"></i> LOGIN</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+				<!-- navbar end -->
+			</div>
+		</div>
+		<div class="row mt-2">
+			<div class="col-sm-12"
+				style="min-height: 600px; background-color: white">
+				<div th:replace="${content}"></div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 p-0">
+				<!-- Footer Start -->
+
+				<footer class="footer-section">
+
+					<div class="container">
+
+						<div class="row gy-4">
+
+							<!-- About -->
+
+							<div class="col-lg-4 col-md-6">
+
+								<h3>HR Synergy</h3>
+
+								<p>A modern Human Resource Management System for employee,
+									attendance, leave, payroll and recruitment management.</p>
+
+							</div>
+
+							<!-- Quick Links -->
+
+							<div class="col-lg-2 col-md-6">
+
+								<h5>Quick Links</h5>
+
+								<ul class="footer-links">
+
+									<li><a href="#">Home</a></li>
+
+									<li><a href="#">Jobs</a></li>
+
+									<li><a href="#">Contact</a></li>
+
+								</ul>
+
+							</div>
+
+							<!-- Modules -->
+
+							<div class="col-lg-3 col-md-6">
+
+								<h5>Modules</h5>
+
+								<ul class="footer-links">
+
+									<li><a href="#">Employee Management</a></li>
+
+									<li><a href="#">Attendance Tracking</a></li>
+
+									<li><a href="#">Payroll System</a></li>
+
+								</ul>
+
+							</div>
+
+							<!-- Contact -->
+
+							<div class="col-lg-3 col-md-6">
+
+								<h5>Contact</h5>
+
+								<ul class="footer-contact">
+
+									<li><span class="icon-box1"> <i
+											class="fa-solid fa-location-dot"></i>
+									</span> Lucknow, Uttar Pradesh</li>
+
+									<li><span class="icon-box1"> <i
+											class="fa-solid fa-envelope"></i>
+									</span> support@hrsynergy.com</li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+						<hr>
+
+						<div class="copyright">© 2026 HR Synergy. All Rights
+							Reserved Developed By | Er.Sameer</div>
+
+					</div>
+
+				</footer>
+
+				<!-- Footer End -->
+			</div>
+		</div>
+	</div>
+	<script src="js/bootstrap.bundle.js"></script>
+</body>
+</html>

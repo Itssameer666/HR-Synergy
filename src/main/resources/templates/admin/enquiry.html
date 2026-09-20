@@ -1,0 +1,40 @@
+<html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
+<body>
+ <main>
+ 	<h1>View job Enquiry</h1>
+ 	<div th:if="${msg}">
+ 	<p th:text="${msg}" style="color:red;text-align:center;"></p>
+ 	</div>
+ 	<hr/>
+ 	<table class="table table-bordered">
+ 	<thead>
+ 	<tr>
+ 	<th>ID</th>
+ 	<th>Name</th>
+ 	<th>Address</th>
+ 	<th>Contact No</th>
+ 	<th>Enquiry Text</th>
+ 	<th>Delete</th>
+ 	
+ 	</tr>
+ 	</thead>
+ 	<tbody>
+ 	<tr th:each="p :${people}">
+ 	<td th:text="${p.id}"></td>
+ 	<td th:text="${p.name}"></td>
+ 	<td th:text="${p.address}"></td>
+ 	<td th:text="${p.contactno}"></td>
+ 	<td th:text="${p.enquirytext}"></td>
+ 	<td>
+ 	<a th:href="@{/admin/deletepeople(id=${p.id})}" class="btn btn-danger btn-sm">
+ 	Delete
+ 	</a>
+ 	</td>
+ 	
+ 	</tr>
+ 	</tbody>
+ 	
+ 	</table>
+ </main>
+</body>
+</html>

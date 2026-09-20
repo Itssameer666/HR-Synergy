@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
+<head>
+<main>
+  <h1>Appied Jobs</h1>
+  <hr/>
+  <table class="table table-bordered">
+  <tr>
+  <th>Id</th>
+  <th>Job Id</th>
+  <th>Title</th>
+  <th>Name</th>
+  <th>Contact No</th>
+  <th>Email Address</th>
+  <th>Qualification</th>
+  <th>Experience</th>
+  <th>Key Skill</th>
+  <th>Applied Date</th>
+  
+  </tr>
+  <tr th:each="j:${aj}">
+  <td th:text="${j.id}"></td>
+  <td th:text="${j.jobid}"></td>
+   <td th:text="${j.title}"></td>
+    <td th:text="${j.name}"></td>
+     <td th:text="${j.contactno}"></td>
+      <td th:text="${j.emailaddress}"></td>
+       <td th:text="${j.qualification}"></td>
+        <td th:text="${j.experience}"></td>
+         <td th:text="${j.keyskill}"></td>
+          <td th:text="${j.appliedate}"></td>
+  </tr>
+  
+  </table>
+</main>
+</body>
+</html>

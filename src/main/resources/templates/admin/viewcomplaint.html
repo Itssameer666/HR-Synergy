@@ -1,0 +1,35 @@
+<html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
+<body>
+ <main>
+ 	<h1>View All Complaints</h1>
+ 	<div th:if="${msg}">
+ 	<p th:text="${msg}" style="color:red;text-align:center;"></p>
+ 	</div>
+ 	<hr/>
+ 	<table class="table table-boreded" style="margin:auto;width:90%;">
+ 	<tr>
+ 	<th>Id</th>
+ 	<th>Name</th>
+ 	<th>Contact No</th>
+ 	<th>Subject</th>
+ 	<th>Complaint</th>
+ 	<th>Posted Date</th>
+ 	<th>Delete</th>
+ 	</tr>
+ 	<tr th:each="c:${comp}">
+ 	<td th:text="${c.id}"></td>
+ 	<td th:text="${c.name}"></td>
+ 	<td th:text="${c.contactno}"></td>
+ 	<td th:text="${c.subject}"></td>
+ 	<td th:text="${c.responsetext}"></td>
+ 	<td th:text="${c.posteddate}"></td>
+ 	<td>
+ 	<a th:href="@{/admin/deletecomp(id=${c.id})}" class="btn btn-danger btn-sm">
+ 	Delete
+ 	</a>
+ 	</td>
+ 	</tr>
+ 	</table>
+ </main>
+</body>
+</html>

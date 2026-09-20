@@ -1,0 +1,116 @@
+<html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
+<body>
+	<main>
+		<h1>View job Seekers</h1>
+		<div th:if="${msg}">
+			<p th:text="${msg}" style="color: red; text-align: center;"></p>
+		</div>
+		<hr />
+		<main class="container my-4">
+
+			<!-- Dashboard Banner -->
+			<div
+				class="p-4 p-md-5 mb-4 rounded-4 text-white bg-gradient-primary shadow-sm">
+				<div
+					class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+					<div class="text-white">
+						<h2 class="fw-bold mb-1 text-white">
+							<i class="bi bi-person-lines-fill me-2"></i> Employee List
+						</h2>
+						<p class="mb-0 opacity-75">Manage employee records,
+							departments, and designations effectively.</p>
+					</div>
+					<div class="d-flex gap-2 flex-wrap">
+						<button class="btn btn-light text-primary fw-semibold shadow-sm">
+							<a class="text-decoration-none" href="/registration"><i
+								class="bi bi-person-plus-fill me-1"></i> Add Employee</a>
+						</button>
+						<button class="btn btn-outline-light">
+							<i class="bi bi-arrow-left me-1"></i><a
+								class="text-decoration-none text-white "
+								href="/admin/admindashboard">Dashboard 
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Filter & Search Controls -->
+			<div class="card p-3 mb-4">
+				<div class="row g-3">
+					<div class="col-md-8 col-lg-9">
+						<div class="input-group">
+							<span class="input-group-text bg-white border-end-0 text-muted">
+								<i class="bi bi-search"></i>
+							</span> <input type="text" class="form-control border-start-0 ps-0"
+								placeholder="Search by name, department, designation..." />
+						</div>
+					</div>
+					<div class="col-md-4 col-lg-3 d-flex gap-2">
+						<button class="btn btn-primary w-100">
+							<i class="bi bi-search me-1"></i> Search
+						</button>
+						<button class="btn btn-outline-secondary">
+							<i class="bi bi-arrow-counterclockwise"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Employee Records Table -->
+			<div class="card shadow-sm mb-5">
+				<div class="card-header bg-white py-3">
+					<h5 class="card-title mb-0 fw-bold text-dark">
+						<i class="bi bi-list-task me-2 text-primary"></i> Employee Records
+					</h5>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-hover align-middle mb-0 w-90">
+						<thead>
+							<tr>
+								<th>Id</th>
+								<th>Name</th>
+								<th>Gender</th>
+								<th>Contact No</th>
+								<th>Email Address</th>
+								<th>Qualification</th>
+								<th>Experience</th>
+								<th>Key Skills</th>
+								<th>Address</th>
+								<th class="text-end">Actions</th>
+
+							</tr>
+
+						</thead>
+						<tbody>
+							<tr th:each="user :${users}">
+								<td th:text="${user.userid}"></td>
+								<td th:text="${user.name}"></td>
+								<td th:text="${user.gender}"></td>
+								<td th:text="${user.contactno}"></td>
+								<td th:text="${user.emailaddress}"></td>
+								<td th:text="${user.qualification}"></td>
+								<td th:text="${user.experience}"></td>
+								<td th:text="${user.keyskill}"></td>
+								<td th:text="${user.address}"></td>
+								<td><span class="badge bg-light text-primary border"></span></td>
+								<td class="fw-bold"></td>
+								<td class="text-end">
+									<button class="btn btn-sm btn-warning me-1">
+										<i class="bi bi-pencil-square"></i> Edit
+									</button>
+									<button class="btn btn-sm btn-danger">
+										<a th:href="@{/admin/deleteusers(id=${user.userid})}">Delete</a>
+									</button>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</div>
+			</div>
+
+		</main>
+
+	</main>
+</body>
+</html>

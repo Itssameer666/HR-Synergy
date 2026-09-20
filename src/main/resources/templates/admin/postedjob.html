@@ -1,0 +1,45 @@
+<html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
+<body>
+ <main>
+ 	<h1>View Posted Jobs</h1>
+ 	<div th:if="${msg}">
+ 	<p th:text="${msg}" style="color:red;text-align:center;"></p>
+ 	</div>
+ 	<hr/>
+ 	<table class="table table-bordered" style="margin:auto;width:90%;">
+ 	<thead>
+ 	<tr>
+ 	<th>Id</th>
+ 	<th>Job Title</th>
+ 	<th>Description</th>
+ 	<th>Location</th>
+ 	<th>Job Type</th>
+ 	<th>Last Date </th>
+ 	<th>Post Date</th>
+ 	<th>Action</th>
+ 	
+ 	</tr>
+ 	</thead>
+ 	
+ 	<tbody>
+ 	<tr th:each="job :${jobs}">
+ 	<td th:text="${job.id}"></td>
+ 	<td th:text="${job.title}"></td>
+ 	<td th:text="${job.description}"></td>
+ 	<td th:text="${job.location}"></td>
+ 	<td th:text="${job.jobtype}"></td>
+ 	<td th:text="${job.lastdate}"></td>
+ 	<td th:text="${job.posteddate}"></td>
+ 	<td>
+ 	<a th:href="@{/admin/deletejobs(id=${job.id})}" class="btn btn-danger btn-sm">
+ 	Delete
+ 	</a>
+ 	</td>
+ 	
+ 	</tr>
+ 	</tbody>
+ 	
+ 	</table>
+ </main>
+</body>
+</html>

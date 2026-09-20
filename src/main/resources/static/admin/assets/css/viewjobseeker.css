@@ -1,0 +1,48 @@
+:root {
+      --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+      --dark-footer: #0f172a;
+    }
+
+    body {
+      background-color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .bg-gradient-primary {
+      background: var(--primary-gradient);
+    }
+
+    .card {
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    .table-container {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .table thead th {
+      background-color: #4f46e5;
+      color: #ffffff;
+      font-weight: 600;
+      border: none;
+    }
+
+    footer {
+      background-color: var(--dark-footer);
+      color: #94a3b8;
+    }
+
+    footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+  

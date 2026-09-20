@@ -1,0 +1,42 @@
+<html lang="en" th:replace="~{user/userbase :: layout(~{::main})}">
+<body>
+ <main>
+ 	<h2 style="text-align:center; color:green;">Submit Your Feedback / Complaint</h2>
+ 	<div th:if="${msg}">
+ 	<p th:text="${msg}" style="color:green;text-align:center;"></p>
+ 	</div>
+ 	<form class="form-group" method="post" th:object="${rdto}">
+ 	<table class="table table-bodered" style="margin:auto;width:50%;">
+ 	<tr>
+ 	<td>Select Response Type</td>
+ 	<td>
+ 	<select class="form-control" th:field="${rdto.responsetype}">
+ 	<option value="feedback">Feedback</option>
+ 	<option value="complaint">Complaint</option>
+ 	
+ 	</select>
+ 	</td>
+ 	</tr>
+ 	<tr>
+ 	<td>Enter Subject</td>
+ 	<td>
+ 	<input type="text" th:field="${rdto.subject}" class="form-control" required/>
+ 	</td>
+ 	</tr>
+ 	<tr>
+ 	<td>Enter Message</td>
+ 	<td>
+ 	<textarea th:field="${rdto.responsetext}" class="form-control" required></textarea>
+ 	</td>
+ 	</tr>
+ 	<tr>
+ 	<td></td>
+ 	<td>
+ 	<button type="submit" class="btn btn-success">Submit</button>
+ 	</td>
+ 	</tr>
+ 	</table>
+ 	</form>
+ </main>
+</body>
+</html>

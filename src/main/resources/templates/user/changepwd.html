@@ -1,0 +1,40 @@
+<html lang="en" th:replace="~{user/userbase :: layout(~{::main})}">
+<body>
+ <main>
+ 	<h1 style="color:green; text-align:center;"> Change Job Seeker password</h1>
+ 	<div th:if="${msg}">
+ 	<p th:text="${msg}" style="color:red;text-align:center;"></p>
+ 	</div>
+ 	<hr/>
+ 	
+ 	<form class="form-group" method="post" action="/user/changepwd">
+ 	<table class="table table-bordered" style="margin:auto;width:50%;">
+ 	<tr>
+ 	<td>Enter Old Password</td>
+ 	<td>
+ 	<input type="password" name="oldpassword" class="form-control" required	/>
+ 	</td>
+ 	</tr>
+ 	 	<tr>
+ 	<td>Enter New Password</td>
+ 	<td>
+ 	<input type="password" name="newpassword" class="form-control" required	/>
+ 	</td>
+ 	</tr>
+ 	 	<tr>
+ 	<td>Enter Confirm Password</td>
+ 	<td>
+ 	<input type="password" name="confirmpassword" class="form-control" required	/>
+ 	</td>
+ 	</tr>
+ 	<tr>
+ 	<td></td>
+ 	<td>
+ 	<button type="submit" class="btn btn-success">Change Password</button>
+ 	</td>
+ 	</tr>
+ 	</table>
+ 	</form>
+ </main>
+</body>
+</html>

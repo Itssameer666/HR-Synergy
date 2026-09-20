@@ -1,0 +1,48 @@
+<html lang="en" th:replace="~{user/userbase :: layout(~{::main})}">
+<body>
+ <main>
+ 	<h1>User Dashboard</h1>
+ 	<div th:if="${msg}">
+ 	<p th:text="${msg}"></p>
+ 	</div>
+ 	<hr/>
+ 	<h1>View jobs</h1>
+ 	<hr/>
+ 	<table class="table table-bordered">
+ 	<thead>
+ 	<tr>
+ 	<th>ID</th>
+ 	<th>Title</th>
+ 	<th>Description</th>
+ 	<th>Location</th>
+ 	<th>Salary</th>
+ 	<th>Job Type</th>
+ 	<th>Last Date</th>
+ 	<th>Posted Date</th>
+ 	<th>Apply</th>
+ 	
+ 	</tr>
+ 	</thead>
+ 	<tbody>
+ 	<tr th:each="j :${jinfo}">
+ 	<td th:text="${j.id}"></td>
+ 	<td th:text="${j.title}"></td>
+ 	<td th:text="${j.description}"></td>
+ 	<td th:text="${j.location}"></td>
+ 	<td th:text="${j.salary}"></td>
+ 	<td th:text="${j.jobtype}"></td>
+ 	<td th:text="${j.lastdate}"></td>
+ 	<td th:text="${j.posteddate}"></td>
+ 	<td>
+ 	<a th:href="@{/user/applyjob/{id}(id=${j.id})}" class="btn btn-danger btn-sm">
+ 	<button class="btn btn-success">Apply</button>
+ 	</a>
+ 	</td>
+ 	
+ 	</tr>
+ 	</tbody>
+ 	
+ 	</table>
+ </main>
+</body>
+</html>

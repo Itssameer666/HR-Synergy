@@ -1,0 +1,74 @@
+<html lang="en" th:replace="~{base::layout(~{::main})}">
+<body>
+	<main>
+		<div class="row">
+			<div class="col-sm-8 mx-auto  my-5 ">
+				<form method="post" th:object="${aidto}">
+					<div class="row">
+
+						<div class="col-sm-6  login-left rounded-4 mt-5  Regular shadow"
+							style="background-color: #2563EB;">
+							<i class="fa-solid fa-shield-halved fa-3x font-icon"
+								style="color: white"></i>
+							<h1 class="text-center fw-bold  text-light mt-3">Welcome
+								To Admin Login</h1>
+							<span class="text-light text-center ps-3 ">Sign in to
+								access your HR Management System. Manage</span> <br> <span
+								class="text-light text-center ps-3">attendance, payroll,
+								leave requests, and more from one</span> <br> <br>
+							<p class="text-light  fw-bold">
+								<i class="fa-solid fa-circle-check ms-5 " style="color: white"></i>
+								Secure & Encrypted Access
+							</p>
+							<p class="text-light  fw-bold">
+								<i class="fa-solid fa-circle-check ms-5 " style="color: white"></i>
+								Employee & Admin Portal
+							</p>
+							<p class="text-light  fw-bold">
+								<i class="fa-solid fa-circle-check ms-5 " style="color: white"></i>
+								Attendance & Leave Management
+							</p>
+							<p class="text-light  fw-bold">
+								<i class="fa-solid fa-circle-check ms-5" style="color: white"></i>
+								Fast, Reliable & User-Friendly
+							</p>
+						</div>
+						<div
+							class="col-sm-6 bg-light rounded-4 mt-5  border border-top-1 border-secondar  login-right ">
+
+							<h1 class="input-box mt-5 fw-bold "> Admin Login</h1>
+							<div th:if="${msg}">
+							<p th:text="${msg}" style="color:red;"></p>
+							</div>
+							<p class="input-box">Enter your cerdentials to continue</p>
+
+							<span class="fw-bold input-box" > Admin ID</span> <br> <input
+								type="text" class="rounded-4 input-box" th:field="${aidto.adminid}"
+								placeholder=" 👤Enter User ID "> <br> <span
+								class="fw-bold input-box">Password</span> <br>
+							<input type="password" th:field="${aidto.password}"
+								class="rounded-4 input-box" placeholder=" 🔑  Enter Password ">
+							<br>
+							<!-- <span
+							class="fw-bold input-box"> User Type</span> <br> <input
+							type="text" class="rounded-4 input-box"
+							placeholder="     Select User Type "> -->
+							<br> <br>
+
+							<button class="btn btn-primary input-box rounded-4" type="submit">
+								Login <i class="fa-solid fa-arrow-right"></i>
+							</button>
+							
+
+
+
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+		</div>
+	</main>
+</body>
+</html>
