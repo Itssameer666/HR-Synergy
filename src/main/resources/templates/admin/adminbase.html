@@ -3,7 +3,7 @@
 <!-- [Head] start -->
 
 <head>
-  <title>Admin Dashboard</title>
+  <title>Admin Dashboard - HR Synergy</title>
   <!-- [Meta] -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -36,6 +36,7 @@
   <link rel="stylesheet" href='/admin/assets/css/style.css'  id="main-style-link">
   <link rel="stylesheet" href='/admin/assets/css/style-preset.css' >
   <link rel="stylesheet" href='/admin/assets/css/viewjobseeker.css' >
+  <link rel="stylesheet" href='/css/modern-dashboard.css' >
 
 </head>
 <!-- [Head] end -->
@@ -53,15 +54,15 @@
   <nav class="pc-sidebar">
     <div class="navbar-wrapper">
       <div class="m-header">
-        <a href="#" class="b-brand text-primary">
-          <!-- ========   Change your logo from here   ============ -->
-          HireHub
+        <a href="/admin/admindashboard" class="b-brand text-primary d-flex align-items-center gap-2 text-decoration-none">
+          <img src="/images/logo.jpeg" alt="HR Synergy Logo" style="width: 36px; height: 36px; border-radius: 8px; object-fit: cover;" class="shadow-xs"/>
+          <span class="fw-bold fs-4 text-dark">HR <span class="text-primary">Synergy</span></span>
         </a>
       </div>
       <div class="navbar-content">
         <ul class="pc-navbar">
           <li class="pc-item">
-            <a href="#" class="pc-link">
+            <a href="/admin/admindashboard" class="pc-link">
               <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
               <span class="pc-mtext">Dashboard</span>
             </a>
@@ -200,19 +201,19 @@
                     <span>Admin Name</span>
                   </div>
                   <!-- LOGOUT -->
-                  <a href="#" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
+                  <a href="/admin/logout" class="pc-head-link bg-transparent" title="Logout"><i class="ti ti-power text-danger"></i></a>
                 </div>
               </div>
               
               <div class="tab-content" id="mysrpTabContent">
                 <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1"
                   tabindex="0">
-                  <a href="#" class="dropdown-item">
+                  <a href="/admin/changeadminpwd" class="dropdown-item">
                     <i class="ti ti-lock"></i>
                     <span>Change Password</span>
                   </a>
                   
-                  <a href="/admin/logout" class="dropdown-item">
+                  <a href="/admin/logout" class="dropdown-item text-danger">
                     <i class="ti ti-power"></i>
                     <span>Logout</span>
                   </a>
@@ -240,12 +241,11 @@
     <div class="footer-wrapper container-fluid">
       <div class="row">
         <div class="col-sm my-1 text-center">
-          <p class="m-0">Softpro India &#9829; developed by <a href="https://linkedin.com/in/er-asif"
-              target="_blank" class="text-white">Er.Sameer</a>.</p>
+          <p class="m-0">&copy; 2026 <strong>HR Synergy HRMS</strong> &bull; Developed by <span class="text-white fw-semibold">Er. Sameer</span></p>
         </div>
         <div class="col-auto my-1">
           <ul class="list-inline footer-link mb-0">
-            <li class="list-inline-item"><a href="../index.html">Home</a></li>
+            <li class="list-inline-item"><a href="/" class="text-white">Home</a></li>
           </ul>
         </div>
       </div>

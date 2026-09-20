@@ -51,15 +51,27 @@ public class AdminController {
 
 	
 	@GetMapping("admin/admindashboard")
-public String showAdminDashboard(HttpSession session,Model model) {
-	if(session.getAttribute("admin")==null) {
-		return "redirect:/adminlogin";
-	}
-	model.addAttribute("usercounter",urepo.count());
-	
-	return "admin/admindashboard";
-	
-}   @GetMapping("admin/jobseeker")
+	public String showAdminDashboard(HttpSession session, Model model) {
+		if (session.getAttribute("admin") == null) {
+			return "redirect:/adminlogin";
+		}
+		model.addAttribute("usercounter", urepo.count());
+		model.addAttribute("jobcounter", jrepo.count());
+		model.addAttribute("enquirycounter", enrepo.count());
+		model.addAttribute("appliedcounter", ajrepo.count());
+		model.addAttribute("feedbackcounter", rrepo.count());
+
+		List<JobInfo> allJobs = jrepo.findAll();
+		model.addAttribute("recentJobs", allJobs.size() > 5 ? allJobs.subList(allJobs.size() - 5, allJobs.size()) : allJobs);
+
+		List<AppliedJob> allApplicants = ajrepo.findAll();
+		model.addAttribute("recentApplicants", allApplicants.size() > 5 ? allApplicants.subList(allApplicants.size() - 5, allApplicants.size()) : allApplicants);
+
+		List<Enquiry> allEnquiries = enrepo.findAll();
+		model.addAttribute("recentEnquiries", allEnquiries.size() > 5 ? allEnquiries.subList(allEnquiries.size() - 5, allEnquiries.size()) : allEnquiries);
+
+		return "admin/admindashboard";
+	}   @GetMapping("admin/jobseeker")
 	public String viewUser(HttpSession session,Model model) {
 		if(session.getAttribute("admin")==null) {
 			return "redirect:/adminlogin";
@@ -168,7 +180,7 @@ public String showAdminDashboard(HttpSession session,Model model) {
     	 }
     	 List<Response> feed=rrepo.findByResponsetype("feedback");
     	 model.addAttribute("feed",feed);
-    	 return "/admin/viewfeedback";
+    	 return "admin/viewfeedback";
     	 
      }
     	 

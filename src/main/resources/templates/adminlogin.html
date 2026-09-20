@@ -1,74 +1,122 @@
+<!DOCTYPE html>
 <html lang="en" th:replace="~{base::layout(~{::main})}">
 <body>
-	<main>
-		<div class="row">
-			<div class="col-sm-8 mx-auto  my-5 ">
-				<form method="post" th:object="${aidto}">
-					<div class="row">
+<main>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="row g-0">
+                <!-- Left Brand Pane (Admin Indigo) -->
+                <div class="col-lg-5 auth-side-pane auth-side-pane-admin d-none d-lg-flex">
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <img src="/images/logo.jpeg" alt="HR Synergy Logo" style="width: 42px; height: 42px; border-radius: 10px; object-fit: cover;" class="shadow-sm" />
+                            <div class="auth-brand-badge mb-0">
+                                <i class="ti ti-shield-lock"></i> HR Operations Console
+                            </div>
+                        </div>
+                        <h2 class="display-6 fw-bold text-white mb-3">HR Synergy Admin Console</h2>
+                        <p class="text-white opacity-90 small mb-4" style="line-height: 1.65;">
+                            Centralized human resource operations management. Publish jobs, evaluate candidate applications, review inquiries, and oversee company talent pipelines.
+                        </p>
 
-						<div class="col-sm-6  login-left rounded-4 mt-5  Regular shadow"
-							style="background-color: #2563EB;">
-							<i class="fa-solid fa-shield-halved fa-3x font-icon"
-								style="color: white"></i>
-							<h1 class="text-center fw-bold  text-light mt-3">Welcome
-								To Admin Login</h1>
-							<span class="text-light text-center ps-3 ">Sign in to
-								access your HR Management System. Manage</span> <br> <span
-								class="text-light text-center ps-3">attendance, payroll,
-								leave requests, and more from one</span> <br> <br>
-							<p class="text-light  fw-bold">
-								<i class="fa-solid fa-circle-check ms-5 " style="color: white"></i>
-								Secure & Encrypted Access
-							</p>
-							<p class="text-light  fw-bold">
-								<i class="fa-solid fa-circle-check ms-5 " style="color: white"></i>
-								Employee & Admin Portal
-							</p>
-							<p class="text-light  fw-bold">
-								<i class="fa-solid fa-circle-check ms-5 " style="color: white"></i>
-								Attendance & Leave Management
-							</p>
-							<p class="text-light  fw-bold">
-								<i class="fa-solid fa-circle-check ms-5" style="color: white"></i>
-								Fast, Reliable & User-Friendly
-							</p>
-						</div>
-						<div
-							class="col-sm-6 bg-light rounded-4 mt-5  border border-top-1 border-secondar  login-right ">
+                        <ul class="auth-feature-list">
+                            <li>
+                                <i class="ti ti-circle-check"></i>
+                                <span>End-to-end recruitment pipeline control</span>
+                            </li>
+                            <li>
+                                <i class="ti ti-circle-check"></i>
+                                <span>Real-time candidate profile inspections & talent pool</span>
+                            </li>
+                            <li>
+                                <i class="ti ti-circle-check"></i>
+                                <span>Publish, modify, and close job postings instantly</span>
+                            </li>
+                            <li>
+                                <i class="ti ti-circle-check"></i>
+                                <span>Candidate feedback & grievance management</span>
+                            </li>
+                        </ul>
+                    </div>
 
-							<h1 class="input-box mt-5 fw-bold "> Admin Login</h1>
-							<div th:if="${msg}">
-							<p th:text="${msg}" style="color:red;"></p>
-							</div>
-							<p class="input-box">Enter your cerdentials to continue</p>
+                    <div class="pt-4 border-top border-white border-opacity-10 text-white opacity-75 small">
+                        <i class="ti ti-shield me-1"></i> Authorized HR personnel and administrators only.
+                    </div>
+                </div>
 
-							<span class="fw-bold input-box" > Admin ID</span> <br> <input
-								type="text" class="rounded-4 input-box" th:field="${aidto.adminid}"
-								placeholder=" 👤Enter User ID "> <br> <span
-								class="fw-bold input-box">Password</span> <br>
-							<input type="password" th:field="${aidto.password}"
-								class="rounded-4 input-box" placeholder=" 🔑  Enter Password ">
-							<br>
-							<!-- <span
-							class="fw-bold input-box"> User Type</span> <br> <input
-							type="text" class="rounded-4 input-box"
-							placeholder="     Select User Type "> -->
-							<br> <br>
+                <!-- Right Form Pane -->
+                <div class="col-lg-7 auth-form-pane bg-white d-flex flex-column justify-content-center">
+                    <div class="auth-form-header">
+                        <span class="badge-pill badge-indigo small mb-2">Administrative Gateway</span>
+                        <h2 class="text-dark">Admin Credentials</h2>
+                        <p class="text-muted small mb-0">Enter your administrative username and secure key to access the control panel.</p>
+                    </div>
 
-							<button class="btn btn-primary input-box rounded-4" type="submit">
-								Login <i class="fa-solid fa-arrow-right"></i>
-							</button>
-							
+                    <!-- Flash Message Alert -->
+                    <div th:if="${msg}" class="dash-alert dash-alert-danger mb-4 py-2 px-3">
+                        <i class="ti ti-alert-circle fs-5"></i>
+                        <span class="small" th:text="${msg}">Invalid Admin ID or Password</span>
+                    </div>
 
+                    <form method="post" th:action="@{/adminlogin}" th:object="${aidto}">
+                        <!-- Admin ID Input -->
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold text-dark small">Admin Identifier / User ID</label>
+                            <div class="input-group">
+                                <span class="input-group-text auth-input-icon">
+                                    <i class="ti ti-user-check"></i>
+                                </span>
+                                <input type="text" th:field="${aidto.adminid}" class="form-control auth-input-field" placeholder="e.g. admin" required autofocus>
+                            </div>
+                        </div>
 
+                        <!-- Password Input -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label class="form-label fw-semibold text-dark small mb-0">Master Password</label>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text auth-input-icon">
+                                    <i class="ti ti-key"></i>
+                                </span>
+                                <input type="password" th:field="${aidto.password}" id="adminPasswordInput" class="form-control auth-input-field" placeholder="Enter administrative password" required>
+                                <button type="button" class="btn btn-light border border-start-0 text-muted" onclick="togglePasswordVisibility('adminPasswordInput', this)">
+                                    <i class="ti ti-eye"></i>
+                                </button>
+                            </div>
+                        </div>
 
-						</div>
+                        <!-- Submit Button -->
+                        <button type="submit" class="auth-submit-btn auth-submit-btn-admin mb-3">
+                            <i class="ti ti-shield-lock"></i> Authorize & Enter Dashboard
+                        </button>
 
-					</div>
-				</form>
-			</div>
+                        <!-- Back Link -->
+                        <div class="text-center pt-2">
+                            <a href="/login" class="text-muted small text-decoration-none">
+                                <i class="ti ti-arrow-left me-1"></i> Looking for Candidate Portal? <strong>Candidate Login</strong>
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-		</div>
-	</main>
+    <!-- Toggle Password Visibility JS -->
+    <script>
+        function togglePasswordVisibility(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.className = 'ti ti-eye-off';
+            } else {
+                input.type = 'password';
+                icon.className = 'ti ti-eye';
+            }
+        }
+    </script>
+</main>
 </body>
 </html>

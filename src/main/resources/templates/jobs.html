@@ -1,431 +1,211 @@
+<!DOCTYPE html>
 <html lang="en" th:replace="~{base::layout(~{::main})}">
 <body>
-	<main>
- <!-- Hero Section -->
-  <section class="hero-section text-white">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <span class="hero-pill-badge mb-3 d-inline-block">Build Your Career With Us</span>
-          <h1 class="display-5 fw-bold mb-3"style="color: blue;">Find Your <span style="color: blue;">Dream Job</span></h1>
-          <p class="text-white-50 mb-4 me-lg-4">
-            Explore extraordinary career opportunities and join the HR Synergy family.
-          </p>
-          <div class="d-flex gap-3 flex-wrap">
-            <a href="#openings" class="btn btn-gold" style="background-color:blue;"><i class="fa-solid fa-briefcase me-1"></i> View Open Positions</a>
-            <a href="#" class="btn btn-hero-outline"><i class="fa-solid fa-user-plus me-1"></i> Registration</a>
-          </div>
-        </div>
-        <div class="col-lg-6 d-none d-lg-block text-end">
-          <img src="images/pic1.avif" alt="Team Working" class="img-fluid rounded-4 shadow-lg opacity-75" style="max-height: 300px; object-fit: cover;">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Metrics Overlay Section -->
-  <div class="container metrics-overlay-wrapper">
-    <div class="row g-3">
-      <div class="col-6 col-md-3">
-        <div class="metric-card">
-          <div class="metric-icon-box icon-blue"><i class="fa-solid fa-briefcase fa-2x" style="color:blue;"></i></div>
-          <h3 class="fw-bold text-dark mb-0">1</h3>
-          <p class="text-muted small mb-0">Total Job Openings</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="metric-card">
-          <div class="metric-icon-box icon-gold"><i class="fa-solid fa-user-group fa-2x"style="color:blue;"></i></div>
-          <h3 class="fw-bold text-dark mb-0">63</h3>
-          <p class="text-muted small mb-0">Active Vacancies</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="metric-card">
-          <div class="metric-icon-box icon-green"><i class="fa-solid fa-building fa-2x" style="color:blue;"></i></div>
-          <h3 class="fw-bold text-dark mb-0">8</h3>
-          <p class="text-muted small mb-0">Departments Hiring</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="metric-card">
-          <div class="metric-icon-box icon-purple"><i class="fa-solid fa-laptop-code fa-2x" style="color:blue;"></i></div>
-          <h3 class="fw-bold text-dark mb-0">Yes</h3>
-          <p class="text-muted small mb-0">Remote Positions</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Filter / Search Section -->
-  <section class="pt-4 pb-5">
-    <div class="container">
-      <div class="filter-bar-card">
-        <form class="row g-3 align-items-center">
-          <div class="col-lg-4 col-md-12">
-            <div class="input-group">
-              <span class="input-group-text bg-transparent border-end-0 text-muted"><i class="fa-solid fa-magnifying-glass"></i></span>
-              <input type="text" class="form-control border-start-0" placeholder="Search jobs by title or keyword...">
-            </div>
-          </div>
-          <div class="col-lg-2 col-md-4">
-            <select class="form-select text-muted">
-              <option selected>Department</option>
-              <option value="1">Engineering</option>
-              <option value="2">HR</option>
-              <option value="3">Design</option>
-            </select>
-          </div>
-          <div class="col-lg-2 col-md-4">
-            <select class="form-select text-muted">
-              <option selected>Location</option>
-              <option value="1">Lucknow</option>
-              <option value="2">Remote</option>
-            </select>
-          </div>
-          <div class="col-lg-2 col-md-4">
-            <select class="form-select text-muted">
-              <option selected>Job Type</option>
-              <option value="1">Full-time</option>
-              <option value="2">Part-time</option>
-            </select>
-          </div>
-          <div class="col-lg-2 col-md-12">
-            <button type="submit" class="btn btn-gold w-100" style="background-color:blue;"><i class="fa-solid fa-filter me-1" ></i> Search</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- Current Job Openings Section -->
-  <section id="openings" class="py-5">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-subtitle-badge">OPEN POSITIONS</span>
-        <h2 class="fw-bold text-dark mt-2">Current Job Openings</h2>
-        <p class="text-muted small">Discover your next opportunity and find the role best suited for you.</p>
-      </div>
-
-      <div class="row justify-content-center">
-        <div class="col-lg-5 col-md-8">
-          <div class="job-card">
-            <div class="d-flex justify-content-between align-items-start mb-3">
-              <div class="d-flex align-items-center">
-                <div class="job-icon-box me-3">
-                  <i class="fa-solid fa-building-user"></i>
+<main>
+    <!-- Hero Header with pic1.avif -->
+    <section class="py-5" style="background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);">
+        <div class="container text-white py-4">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <span class="badge bg-white text-primary rounded-pill px-3 py-2 fw-semibold mb-3">
+                        <i class="ti ti-briefcase"></i> Explore Careers at HR Synergy
+                    </span>
+                    <h1 class="display-5 fw-bold text-white mb-3">Discover Your Next Career Move</h1>
+                    <p class="lead opacity-90 mb-4" style="max-width: 600px;">
+                        Explore verified career opportunities across engineering, HR, design, and operations. Apply in one click and fast-track your professional journey.
+                    </p>
                 </div>
+                <div class="col-lg-5 d-none d-lg-block text-center">
+                    <img src="/images/pic1.avif" alt="Careers at HR Synergy" class="img-fluid rounded-4 shadow-lg border border-white border-opacity-20" style="max-height: 220px; width: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- Search & Filter Card -->
+            <div class="dash-card p-3 mx-auto text-start shadow-lg mt-3" style="max-width: 900px;">
+                <div class="row g-2 align-items-center">
+                    <div class="col-lg-5 col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="ti ti-search"></i></span>
+                            <input type="text" id="publicJobSearch" class="form-control border-start-0" placeholder="Job title, role, skill..." onkeyup="filterPublicJobs()">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-end-0 text-muted"><i class="ti ti-map-pin"></i></span>
+                            <input type="text" id="publicLocationSearch" class="form-control border-start-0" placeholder="Location or Remote" onkeyup="filterPublicJobs()">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <select id="publicTypeFilter" class="form-select" onchange="filterPublicJobs()">
+                            <option value="">All Job Types</option>
+                            <option value="Full Time">Full Time</option>
+                            <option value="Part Time">Part Time</option>
+                            <option value="Internship">Internship</option>
+                            <option value="Remote">Remote</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Listings Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-2">
                 <div>
-                  <h5 class="fw-bold text-dark mb-0">Java Developer</h5>
-                  <p class="text-muted small mb-0">HR Synergy</p>
+                    <h3 class="fw-bold text-dark mb-1">Open Positions</h3>
+                    <p class="text-muted small mb-0">Browse current opportunities published directly by our recruiting team.</p>
                 </div>
-              </div>
-              <span class="badge bg-light text-dark border px-2 py-1 fs-xs">FULL-TIME</span>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge-pill badge-blue small" th:text="${#lists.size(jobs)} + ' Openings Available'">0 Openings Available</span>
+                </div>
             </div>
 
-            <div class="text-muted small space-y-2 mb-3">
-              <div class="mb-1"><i class="fa-solid fa-location-dot me-2 text-secondary"></i> Lucknow, India</div>
-              <div class="mb-1"><i class="fa-solid fa-layer-group me-2 text-secondary"></i> Experience: 1 - 3</div>
-              <div class="mb-1"><i class="fa-solid fa-users me-2 text-secondary"></i> Vacancies: 63</div>
-              <div class="mb-1"><i class="fa-solid fa-clock me-2 text-secondary"></i> Posted</div>
+            <!-- Job Cards Grid -->
+            <div class="row g-4" id="publicJobsContainer">
+                <div th:each="job : ${jobs}" class="col-12 col-md-6 col-lg-4 public-job-item">
+                    <div class="job-card h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="badge-pill badge-blue small public-job-type" th:text="${job.jobtype}">Full Time</span>
+                                <small class="text-muted" th:if="${job.lastdate}">
+                                    <i class="ti ti-calendar me-1"></i>Due: <span th:text="${job.lastdate}">30/10/2026</span>
+                                </small>
+                            </div>
+
+                            <h5 class="fw-bold text-dark mb-2 public-job-title" th:text="${job.title}">Software Engineer</h5>
+
+                            <div class="job-card-meta mb-3">
+                                <span class="public-job-location"><i class="ti ti-map-pin text-primary"></i> <span th:text="${job.location}">Lucknow, UP</span></span>
+                                <span class="fw-semibold text-primary"><i class="ti ti-currency-rupee"></i> <span th:text="${job.salary}">50000</span>/mo</span>
+                            </div>
+
+                            <p class="job-card-desc text-muted small" style="min-height: 48px;" th:text="${#strings.abbreviate(job.description, 130)}">
+                                Exciting opportunity to build cutting edge digital platforms.
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-top d-flex justify-content-between align-items-center mt-3">
+                            <small class="text-muted" th:if="${job.posteddate}">
+                                Posted: <span th:text="${job.posteddate}">Recent</span>
+                            </small>
+                            <small class="text-muted" th:unless="${job.posteddate}">
+                                Actively Hiring
+                            </small>
+                            <a href="/login" class="btn btn-sm btn-dash-primary">
+                                Apply Now <i class="ti ti-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div th:if="${#lists.isEmpty(jobs)}" class="col-12">
+                    <div class="dash-card text-center py-5">
+                        <div class="mb-3 text-muted">
+                            <i class="ti ti-briefcase-off" style="font-size: 3rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-dark mb-2">No Active Openings At This Time</h4>
+                        <p class="text-muted small mb-4" style="max-width: 500px; margin: 0 auto;">
+                            We don't have open vacancies matching right now. Please register as a candidate to get notified immediately when matching roles are published.
+                        </p>
+                        <a href="/registration" class="btn btn-primary rounded-pill px-4 fw-semibold">
+                            <i class="ti ti-user-plus me-1"></i> Register for Job Alerts
+                        </a>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div class="mb-4">
-              <span class="badge bg-light text-secondary me-1"><i class="fa-solid fa-tag text-warning"></i> IT</span>
-              <span class="badge bg-light text-secondary"><i class="fa-solid fa-graduation-cap text-success"></i> Full Time</span>
+    <!-- Hiring Lifecycle Steps -->
+    <section class="py-5 bg-white border-top">
+        <div class="container text-center">
+            <span class="badge-pill badge-blue mb-2">Simple 4-Step Process</span>
+            <h2 class="fw-bold text-dark mb-5">How You Join HR Synergy</h2>
+
+            <div class="row g-4 text-start">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 border bg-light h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">01</div>
+                        <h5 class="fw-bold text-dark mb-2">Register Profile</h5>
+                        <p class="text-muted small mb-0">Fill in your qualification, experience, and key skills to generate your candidate portfolio.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 border bg-light h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">02</div>
+                        <h5 class="fw-bold text-dark mb-2">One-Click Apply</h5>
+                        <p class="text-muted small mb-0">Submit applications directly to hiring managers with zero repetitive form filling.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 border bg-light h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">03</div>
+                        <h5 class="fw-bold text-dark mb-2">HR Review</h5>
+                        <p class="text-muted small mb-0">Recruiters review candidate submissions and schedule screening and interview rounds.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 rounded-4 border bg-light h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">04</div>
+                        <h5 class="fw-bold text-dark mb-2">Get Hired</h5>
+                        <p class="text-muted small mb-0">Receive formal offers, complete seamless onboarding, and commence your exciting journey.</p>
+                    </div>
+                </div>
             </div>
-
-            <button class="btn btn-apply-navy"><i class="fa-solid fa-paper-plane me-1"></i> Apply Now</button>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Why Join HR Synergy Section -->
-  <section class="py-5 section-bg-mint">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-subtitle-badge">WHY JOIN US</span>
-        <h2 class="fw-bold text-dark mt-2">Why Join HR Synergy?</h2>
-        <p class="text-muted small">We value our people because they are the heart of everything we do.</p>
-      </div>
-
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-chart-line fa-2x"style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Career Growth</h6>
-            <p class="text-muted small mb-0">Clear paths for promotion and internal opportunities.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-people-group fa-2x"style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Amazing Environment</h6>
-            <p class="text-muted small mb-0">A welcoming culture where every voice is heard.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-scale-balanced fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Work-Life Balance</h6>
-            <p class="text-muted small mb-0">Flexible hours and policies that value your personal time.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-sack-dollar fa-2x"style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Competitive Salary</h6>
-            <p class="text-muted small mb-0">Industry-standard compensation and bonuses.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-umbrella fa-2x"style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Paid Time Off</h6>
-            <p class="text-muted small mb-0">Generous vacation days and personal time off.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-award fa-2x"style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Recognition</h6>
-            <p class="text-muted small mb-0">Regular awards and peer appreciation programs.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-graduation-cap fa-2x"style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Training</h6>
-            <p class="text-muted small mb-0">Sponsorship for courses and continuous learning.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-laptop fa-2x"style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Modern Infrastructure</h6>
-            <p class="text-muted small mb-0">Latest technology and software tools provided.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Hiring Process Section -->
-  <section class="py-5">
-    
-      <div class="text-center mb-5">
-        <span class="section-subtitle-badge">THE PROCESS</span>
-        <h2 class="fw-bold text-dark mt-3">Our Hiring Process</h2>
-        <p class="text-muted small">A simple, transparent path from application to offer.</p>
-      </div>
-
-      <div class="process-wrapper">
-        <div class="process-line d-none d-md-block"></div>
-        <div class="row g-4">
-          
-          <div class="col-md-2-4 col-sm-3 text-center">
-            <div class="process-step">
-              <div class="process-circle"><i class="fa-regular fa-file-lines"></i></div>
-              <h6 class="fw-bold text-dark mb-1">1. Apply</h6>
-              <p class="text-muted extra-small">Submit your application for the open position.</p>
+    <!-- Bottom CTA Banner -->
+    <section class="py-5">
+        <div class="container">
+            <div class="dash-hero-banner text-center py-5">
+                <h2 class="display-6 fw-bold text-white mb-2">Ready to Accelerate Your Career?</h2>
+                <p class="opacity-90 mb-4 fs-6" style="max-width: 600px; margin: 0 auto;">
+                    Create your profile in 2 minutes and start connecting with recruiters today.
+                </p>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <a href="/registration" class="dash-hero-btn btn-solid-light">
+                        <i class="ti ti-user-plus"></i> Register as Candidate
+                    </a>
+                    <a href="/login" class="dash-hero-btn">
+                        <i class="ti ti-login"></i> Sign In to Portal
+                    </a>
+                </div>
             </div>
-          </div>
-
-          <div class="col-md-2-4 col-sm-2 text-center">
-            <div class="process-step">
-              <div class="process-circle"><i class="fa-solid fa-magnifying-glass"></i></div>
-              <h6 class="fw-bold text-dark mb-1">2. Review</h6>
-              <p class="text-muted extra-small">Our HR team reviews your skills and experience.</p>
-            </div>
-          </div>
-
-          <div class="col-md-2-4 col-sm-2 text-center">
-            <div class="process-step">
-              <div class="process-circle"><i class="fa-solid fa-laptop"></i></div>
-              <h6 class="fw-bold text-dark mb-1">3. Interview</h6>
-              <p class="text-muted extra-small">Technical and cultural fit conversation with our team.</p>
-            </div>
-          </div>
-
-          <div class="col-md-2-4 col-sm-2 text-center">
-            <div class="process-step">
-              <div class="process-circle"><i class="fa-regular fa-comments"></i></div>
-              <h6 class="fw-bold text-dark mb-1">4. HR Discussion</h6>
-              <p class="text-muted extra-small">Final conversation about terms and expectations.</p>
-            </div>
-          </div>
-
-          <div class="col-md-2-4 col-sm-2 text-center">
-            <div class="process-step">
-              <div class="process-circle"><i class="fa-regular fa-folder-open"></i></div>
-              <h6 class="fw-bold text-dark mb-1">5. Offer Letter</h6>
-              <p class="text-muted extra-small">Receive your formal offer and join our team!</p>
-            </div>
-          </div>
-
         </div>
-      </div>
-    
-  </section>
+    </section>
 
-  <!-- Employee Benefits Section -->
-  <section class="py-5 section-bg-mint">
-    <div class="container">
-      <div class="text-center mb-5">
-        <span class="section-subtitle-badge">BENEFITS</span>
-        <h2 class="fw-bold text-dark mt-2">Employee Benefits</h2>
-        <p class="text-muted small">We take care of our people on and off the job.</p>
-      </div>
+    <!-- Dynamic Filter Script -->
+    <script>
+        function filterPublicJobs() {
+            const titleQuery = (document.getElementById('publicJobSearch').value || '').toLowerCase();
+            const locQuery = (document.getElementById('publicLocationSearch').value || '').toLowerCase();
+            const typeQuery = (document.getElementById('publicTypeFilter').value || '').toLowerCase();
 
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-heart-pulse fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Health Insurance</h6>
-          </div>
-        </div>
+            const items = document.querySelectorAll('.public-job-item');
+            items.forEach(item => {
+                const titleText = (item.querySelector('.public-job-title')?.innerText || '').toLowerCase();
+                const locText = (item.querySelector('.public-job-location')?.innerText || '').toLowerCase();
+                const typeText = (item.querySelector('.public-job-type')?.innerText || '').toLowerCase();
 
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-plane-departure fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Paid Leaves</h6>
-          </div>
-        </div>
+                const matchTitle = !titleQuery || titleText.includes(titleQuery);
+                const matchLoc = !locQuery || locText.includes(locQuery);
+                const matchType = !typeQuery || typeText.includes(typeQuery);
 
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-trophy fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Performance Bonus</h6>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-book-open fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Learning Opportunities</h6>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-clock fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Flexible Working</h6>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-champagne-glasses fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Annual Events</h6>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-seedling fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Personal Development</h6>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
-            <div class="feature-icon-box mx-auto"><i class="fa-solid fa-handshake-angle fa-2x" style="color:blue;"></i></div>
-            <h6 class="fw-bold text-dark">Team Support</h6>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Banner Section -->
-  <section class="py-5">
-    <div class="container">
-      <div class="cta-banner text-center">
-        <h2 class="fw-bold mb-2">Ready to Start Your Career?</h2>
-        <p class="text-white-50 small mb-4">Join our growing team today and build something extraordinary with HR Synergy.</p>
-        <div class="d-flex justify-content-center gap-3">
-          <a href="#" class="btn btn-light rounded-pill px-4 fw-semibold"><i class="fa-regular fa-file-lines me-1"></i> Apply Now</a>
-          <a href="#" class="btn btn-hero-outline"><i class="fa-solid fa-user-plus me-1"></i> Register</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Cards & Socials -->
-  <section class="pb-5">
-    <div class="container">
-      <div class="row g-4 mb-4">
-        <div class="col-md-3">
-          <div class="contact-info-card">
-            <div class="contact-icon-circle"><i class="fa-regular fa-envelope fa-2x"></i></div>
-            <h6 class="fw-bold text-dark mb-1">Email</h6>
-            <p class="text-muted small mb-0">careers@hrsynergy.com</p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="contact-info-card">
-            <div class="contact-icon-circle"><i class="fa-solid fa-phone fa-2x"></i></div>
-            <h6 class="fw-bold text-dark mb-1">Phone</h6>
-            <p class="text-muted small mb-0">+91 987 654 3210</p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="contact-info-card">
-            <div class="contact-icon-circle"><i class="fa-solid fa-location-dot fa-2x"></i></div>
-            <h6 class="fw-bold text-dark mb-1">Office Location</h6>
-            <p class="text-muted small mb-0">Lucknow, Uttar Pradesh, India</p>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="contact-info-card">
-            <div class="contact-icon-circle"><i class="fa-regular fa-clock fa-2x"></i></div>
-            <h6 class="fw-bold text-dark mb-1">Working Hours</h6>
-            <p class="text-muted small mb-0">Mon - Sat: 9:00 AM - 6:00 PM</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Icons -->
-      <div class="text-center mb-5">
-        <a href="#" class="social-icon-btn"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a href="#" class="social-icon-btn"><i class="fa-brands fa-twitter"></i></a>
-        <a href="#" class="social-icon-btn"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="#" class="social-icon-btn"><i class="fa-brands fa-instagram"></i></a>
-      </div>
-
-      <!-- Floating Bottom Search Card -->
-      <div class="bottom-search-card">
-        <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
-          <div class="d-flex align-items-center">
-            <div class="bottom-search-icon me-3">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <div>
-              <h6 class="fw-bold text-dark mb-0">Still Looking?</h6>
-              <p class="text-muted small mb-0">Can't find the right opportunity right now? Sign up to receive job alerts or contact our talent acquisition team directly.</p>
-            </div>
-          </div>
-          <div class="d-flex gap-2">
-            <a class="text-decoration-none" href="/registration"><button class="btn btn-gold" style="background-color:blue;"><i class="fa-solid fa-bell me-1"></i> Register</button></a>
-            <button class="btn btn-outline-secondary rounded-pill px-3"><i class="fa-regular fa-envelope me-1"></i> Contact Us</button>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-	</main>
+                if (matchTitle && matchLoc && matchType) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</main>
 </body>
 </html>

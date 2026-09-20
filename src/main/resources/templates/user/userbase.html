@@ -3,12 +3,11 @@
 <!-- [Head] start -->
 
 <head>
-  <title>Job Seeker Dashboard</title>
+  <title>Job Seeker Portal - HR Synergy</title>
   <!-- [Meta] -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
 
   <!-- [Favicon] icon -->
   <link rel="icon" href="" type="image/x-icon">
@@ -17,7 +16,7 @@
   <link rel="stylesheet" href='/user/assets/css/plugins/dataTables.bootstrap5.min.css' >
   <!-- [Google Font] Family -->
   <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Public+Sans:wght@300;400;500;600;700&display=swap"
     id="main-font-link">
   <!-- [Tabler Icons] https://tablericons.com -->
   <link rel="stylesheet" href='/user/assets/fonts/tabler-icons.min.css' >
@@ -27,10 +26,28 @@
   <link rel="stylesheet" href='/user/assets/fonts/fontawesome.css' >
   <!-- [Material Icons] https://fonts.google.com/icons -->
   <link rel="stylesheet" href='/user/assets/fonts/material.css' >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
   <!-- [Template CSS Files] -->
   <link rel="stylesheet" href='/user/assets/css/style.css'  id="main-style-link">
   <link rel="stylesheet" href='/user/assets/css/style-preset.css' >
+  <link rel="stylesheet" href='/css/modern-dashboard.css' >
 
+  <style>
+    .pc-sidebar .b-brand {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+    }
+    .user-pill-badge {
+      background: rgba(37, 99, 235, 0.12);
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 0.7rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 9999px;
+      letter-spacing: 0.04em;
+    }
+  </style>
 </head>
 <!-- [Head] end -->
 <!-- [Body] Start -->
@@ -43,62 +60,77 @@
     </div>
   </div>
   <!-- [ Pre-loader ] End -->
+
   <!-- [ Sidebar Menu ] start -->
   <nav class="pc-sidebar">
     <div class="navbar-wrapper">
       <div class="m-header">
-        <a href="/user/userdash" class="b-brand text-primary">
-          <!-- ========   Change your logo from here   ============ -->
-          KRAM-HRMS
+        <a href="/user/userdash" class="b-brand text-decoration-none">
+          <div class="d-flex align-items-center gap-2">
+            <img src="/images/logo.jpeg" alt="HR Synergy Logo" style="width: 36px; height: 36px; border-radius: 8px; object-fit: cover;" class="shadow-xs"/>
+            <div>
+              <span class="fw-bold fs-4 text-dark">HR <span class="text-primary">Synergy</span></span>
+              <span class="user-pill-badge ms-1">CANDIDATE</span>
+            </div>
+          </div>
         </a>
       </div>
       <div class="navbar-content">
         <ul class="pc-navbar">
+          <li class="pc-item pc-caption">
+            <label>Overview</label>
+            <i class="ti ti-dashboard"></i>
+          </li>
           <li class="pc-item">
             <a href="/user/userdash" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-dashboard"></i></span>
+              <span class="pc-micon"><i class="ti ti-layout-dashboard"></i></span>
               <span class="pc-mtext">Dashboard</span>
             </a>
           </li>
 
           <li class="pc-item pc-caption">
-            <label>Manage</label>
-            <i class="ti ti-dashboard"></i>
+            <label>Career & Jobs</label>
+            <i class="ti ti-briefcase"></i>
           </li>
         
           <li class="pc-item">
             <a href="/user/viewjobs" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-typography"></i></span>
-              <span class="pc-mtext">View Jobs</span>
-            </a>
-          </li>
-          <li class="pc-item">
-            <a href="/user/giveresponse" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-typography"></i></span>
-              <span class="pc-mtext">Give Response</span>
+              <span class="pc-micon"><i class="ti ti-briefcase"></i></span>
+              <span class="pc-mtext">Explore Jobs</span>
             </a>
           </li>
           <li class="pc-item">
             <a href="/user/viewprofile" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-typography"></i></span>
-              <span class="pc-mtext">View Profile</span>
+              <span class="pc-micon"><i class="ti ti-user"></i></span>
+              <span class="pc-mtext">My Profile</span>
+            </a>
+          </li>
+
+          <li class="pc-item pc-caption">
+            <label>Support & Communication</label>
+            <i class="ti ti-messages"></i>
+          </li>
+          <li class="pc-item">
+            <a href="/user/giveresponse" class="pc-link">
+              <span class="pc-micon"><i class="ti ti-message-dots"></i></span>
+              <span class="pc-mtext">Feedback / Complaint</span>
             </a>
           </li>
           
           <li class="pc-item pc-caption">
-            <label>Actions</label>
-            <i class="ti ti-news"></i>
+            <label>Account Settings</label>
+            <i class="ti ti-settings"></i>
           </li>
           <li class="pc-item">
             <a href="/user/changepwd" class="pc-link">
-              <span class="pc-micon"><i class="ti ti-lock"></i></span>
+              <span class="pc-micon"><i class="ti ti-shield-lock"></i></span>
               <span class="pc-mtext">Change Password</span>
             </a>
           </li>
           <li class="pc-item">
-            <a href="/user/logout" class="pc-link">
-              <span class="pc-micon"> <i class="ti ti-power"></i></span>
-              <span class="pc-mtext">Logout</span>
+            <a href="/user/logout" class="pc-link text-danger" onclick="return confirm('Are you sure you want to sign out?');">
+              <span class="pc-micon text-danger"><i class="ti ti-power"></i></span>
+              <span class="pc-mtext text-danger">Sign Out</span>
             </a>
           </li>
 
@@ -107,12 +139,13 @@
       </div>
     </div>
   </nav>
-  <!-- [ Sidebar Menu ] end --> <!-- [ Header Topbar ] start -->
+  <!-- [ Sidebar Menu ] end -->
+
+  <!-- [ Header Topbar ] start -->
   <header class="pc-header">
-    <div class="header-wrapper bg-primary"> <!-- [Mobile Media Block] start -->
+    <div class="header-wrapper">
       <div class="me-auto pc-mob-drp">
-        <ul class="list-unstyled">
-          <!-- ======= Menu collapse Icon ===== -->
+        <ul class="list-unstyled d-flex align-items-center mb-0">
           <li class="pc-h-item pc-sidebar-collapse">
             <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
               <i class="ti ti-menu-2"></i>
@@ -123,68 +156,61 @@
               <i class="ti ti-menu-2"></i>
             </a>
           </li>
-          <li class="dropdown pc-h-item d-inline-flex d-md-none">
-            <a class="pc-head-link dropdown-toggle arrow-none m-0" data-bs-toggle="dropdown" href="#" role="button"
-              aria-haspopup="false" aria-expanded="false">
-              <i class="ti ti-search"></i>
-            </a>
-            <div class="dropdown-menu pc-h-dropdown drp-search">
-              <form class="px-3">
-                <div class="form-group mb-0 d-flex align-items-center">
-                  <i data-feather="search"></i>
-                  <input type="search" class="form-control border-0 shadow-none" placeholder="Search here. . .">
-                </div>
-              </form>
-            </div>
-          </li>
           <li class="pc-h-item d-none d-md-inline-flex">
-            <form class="header-search">
-              <i data-feather="search" class="icon-search"></i>
-              <input type="search" class="form-control" placeholder="Search here. . .">
-            </form>
+            <span class="text-muted small">
+              <i class="ti ti-point-filled text-success"></i> Candidate Portal Active
+            </span>
           </li>
         </ul>
       </div>
-      <!-- [Mobile Media Block end] -->
+
       <div class="ms-auto">
-        <ul class="list-unstyled">
-          
-          <li class="dropdown pc-h-item header-user-profile">
-            <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button"
-              aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-              <img src='/user/assets/images/user/avatar-2.jpg'  alt="user-image" class="user-avtar">
-              <span>Job Seeker</span>
+        <ul class="list-unstyled d-flex align-items-center gap-2 mb-0">
+          <li class="pc-h-item">
+            <a href="/user/viewjobs" class="btn btn-sm btn-outline-success rounded-pill px-3 d-none d-sm-inline-flex align-items-center gap-1">
+              <i class="ti ti-search"></i> Find Jobs
             </a>
-            <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
-              <div class="dropdown-header">
-                <div class="d-flex mb-1">
-                  <div class="flex-shrink-0">
-                    <img src='/user/assets/images/user/avatar-2.jpg'  alt="user-image"
-                      class="user-avtar wid-35">
+          </li>
+
+          <li class="dropdown pc-h-item header-user-profile">
+            <a class="pc-head-link dropdown-toggle arrow-none me-0 d-flex align-items-center gap-2 p-1" data-bs-toggle="dropdown" href="#" role="button"
+              aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
+              <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold" style="width: 36px; height: 36px; font-size: 0.9rem;">
+                <i class="ti ti-user"></i>
+              </div>
+              <span class="d-none d-md-inline fw-semibold text-dark small">My Account</span>
+            </a>
+            <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown shadow-sm border-0">
+              <div class="dropdown-header p-3 border-bottom">
+                <div class="d-flex align-items-center">
+                  <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold me-2" style="width: 38px; height: 38px;">
+                    <i class="ti ti-user"></i>
                   </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h6 class="mb-1">Job Seeker</h6>
-                    <span>Name</span>
+                  <div>
+                    <h6 class="mb-0 fw-bold text-dark">Job Seeker</h6>
+                    <small class="text-muted">Verified Candidate</small>
                   </div>
-                  <!-- LOGOUT -->
-                  <a href="#" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></a>
                 </div>
               </div>
               
-              <div class="tab-content" id="mysrpTabContent">
-                <div class="tab-pane fade show active" id="drp-tab-1" role="tabpanel" aria-labelledby="drp-t1"
-                  tabindex="0">
-                  <a href="#" class="dropdown-item">
-                    <i class="ti ti-lock"></i>
-                    <span>Change Password</span>
-                  </a>
-                  
-                  <a href="/user/logout" class="dropdown-item">
-                    <i class="ti ti-power"></i>
-                    <span>Logout</span>
-                  </a>
-                </div>
-                
+              <div class="p-2">
+                <a href="/user/viewprofile" class="dropdown-item py-2 rounded-2">
+                  <i class="ti ti-user me-2 text-muted"></i>
+                  <span>My Profile</span>
+                </a>
+                <a href="/user/viewjobs" class="dropdown-item py-2 rounded-2">
+                  <i class="ti ti-briefcase me-2 text-muted"></i>
+                  <span>Available Jobs</span>
+                </a>
+                <a href="/user/changepwd" class="dropdown-item py-2 rounded-2">
+                  <i class="ti ti-lock me-2 text-muted"></i>
+                  <span>Change Password</span>
+                </a>
+                <hr class="dropdown-divider my-1">
+                <a href="/user/logout" class="dropdown-item py-2 rounded-2 text-danger">
+                  <i class="ti ti-power me-2 text-danger"></i>
+                  <span>Sign Out</span>
+                </a>
               </div>
             </div>
           </li>
@@ -194,8 +220,6 @@
   </header>
   <!-- [ Header ] end -->
 
-
-
   <!-- [ Main Content ] start -->
   <div class="pc-container">
     <div class="pc-content">
@@ -203,16 +227,22 @@
     </div>
   </div>
   <!-- [ Main Content ] end -->
-  <footer class="pc-footer bg-dark ">
+
+  <footer class="pc-footer bg-white border-top py-3">
     <div class="footer-wrapper container-fluid">
-      <div class="row ">
-        <div class="col-sm my-1 p-0">
-          <p class="m-0  text-center text-white" >Softpro India &#9829; developed by <a href="https://linkedin.com/in/er-asif"
-              target="_blank" class="text-white">Er.Sameer</a>.</p>
+      <div class="row align-items-center">
+        <div class="col-sm my-1">
+          <p class="m-0 text-muted small">
+            &copy; 2026 <strong>HR Synergy HRMS</strong> &bull; Developed by <span class="text-dark fw-semibold">Er. Sameer</span>
+          </p>
         </div>
         <div class="col-auto my-1">
-          <ul class="list-inline footer-link mb-0">
-            <li class="list-inline-item"><a href="../index.html">Home</a></li>
+          <ul class="list-inline footer-link mb-0 small">
+            <li class="list-inline-item"><a href="/" class="text-muted text-decoration-none">Home</a></li>
+            <li class="list-inline-item">&bull;</li>
+            <li class="list-inline-item"><a href="/user/viewjobs" class="text-muted text-decoration-none">Browse Jobs</a></li>
+            <li class="list-inline-item">&bull;</li>
+            <li class="list-inline-item"><a href="/user/giveresponse" class="text-muted text-decoration-none">Support</a></li>
           </ul>
         </div>
       </div>
@@ -221,8 +251,6 @@
 
   <!-- [Page Specific JS] start -->
   <script src='/user/assets/js/plugins/apexcharts.min.js' ></script>
-  <script src='/user/assets/js/pages/dashboard-default.js' ></script>
-  <!-- [Page Specific JS] end -->
   <!-- Required Js -->
   <script src='/user/assets/js/plugins/popper.min.js' ></script>
   <script src='/user/assets/js/plugins/simplebar.min.js' ></script>
@@ -231,38 +259,20 @@
   <script src='/user/assets/js/pcoded.js' ></script>
   <script src='/user/assets/js/plugins/feather.min.js' ></script>
 
-
-
-
-
   <script>layout_change('light');</script>
-
-
-
-
   <script>change_box_container('false');</script>
-
-
-
   <script>layout_rtl_change('false');</script>
-
-
   <script>preset_change("preset-1");</script>
-
-
   <script>font_change("Public-Sans");</script>
-
   <script src='/user/assets/js/plugins/sweetalert2.all.min.js' ></script>
  
- <script>
-
+  <script>
     window.addEventListener("pageshow",function (event){
      if(event.persisted || performance.getEntriesByType("navigation")[0]?.type ==="back_forword"){
         window.location.reload();
      }
     });
-</script> 
+  </script> 
 </body>
 <!-- [Body] end -->
-
 </html>

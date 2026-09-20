@@ -1,427 +1,176 @@
+<!DOCTYPE html>
 <html lang="en" th:replace="~{base::layout(~{::main})}">
 <body>
-	<main>
-		<!-- Hero Section -->
-		<section class="hero-section">
-			<div class="container">
-				<div class="row align-items-center gy-5">
-					<div class="col-lg-6">
-						<span class="badge-pill mb-3"><i
-							class="bi bi-briefcase me-1"></i> Careers at HR Synergy</span>
-						<h1 class="display-4 fw-extrabold text-dark mb-3">Join Our
-							Amazing Team</h1>
-						<p class="lead text-muted mb-4 fs-6">Build your career with HR
-							Synergy. We are looking for passionate, talented, and dedicated
-							people who want to make an impact.</p>
-						<div class="d-flex flex-wrap gap-3">
-							<a href="#jobs"
-								class="btn btn-primary btn-lg rounded-pill px-4 fs-6">View
-								Jobs</a> <a href="#about"
-								class="btn btn-outline-primary btn-lg rounded-pill px-4 fs-6">Explore
-								Culture</a>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="position-relative">
-							<img src="images/pic5.avif" class="img-fluid rounded-4 shadow-lg"
-								alt="Team meeting">
-							<div
-								class="position-absolute bottom-0 start-0 translate-middle-y bg-white p-3 rounded-3 shadow ms-n3 d-none d-sm-flex align-items-center gap-3">
-								<div
-									class="bg-success text-white rounded-circle p-2 d-flex align-items-center justify-content-center"
-									style="width: 40px; height: 40px;">
-									<i class="bi bi-graph-up-arrow"></i>
-								</div>
-								<div>
-									<h6 class="mb-0 text-dark fw-bold">Career Growth</h6>
-									<small class="text-muted">Accelerate your skills</small>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+<main>
+    <!-- Hero Header with pic5.avif -->
+    <section class="py-5" style="background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);">
+        <div class="container text-white py-4">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <span class="badge bg-white text-primary rounded-pill px-3 py-2 fw-semibold mb-3">
+                        <i class="ti ti-users"></i> Careers at HR Synergy
+                    </span>
+                    <h1 class="display-5 fw-bold text-white mb-3">Build an Impactful Career at HR Synergy</h1>
+                    <p class="lead opacity-90 mb-4" style="max-width: 550px;">
+                        We are building the future of workforce management and talent acceleration. Discover our collaborative culture, growth opportunities, and rewarding work life.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+                        <a href="/jobs" class="dash-hero-btn btn-solid-light">
+                            <i class="ti ti-briefcase"></i> View All Open Roles
+                        </a>
+                        <a href="/registration" class="dash-hero-btn">
+                            <i class="ti ti-user-plus"></i> Join Talent Network
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="position-relative">
+                        <img src="/images/pic5.avif" class="img-fluid rounded-4 shadow-lg border border-white border-opacity-25 w-100" alt="HR Synergy Team Culture" style="max-height: 380px; object-fit: cover;">
+                        <div class="position-absolute bottom-0 start-0 translate-middle-y bg-white p-3 rounded-3 shadow ms-3 d-none d-sm-flex align-items-center gap-3">
+                            <div class="bg-primary text-white rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <i class="ti ti-trending-up fs-5"></i>
+                            </div>
+                            <div class="text-start">
+                                <h6 class="mb-0 text-dark fw-bold">Accelerated Growth</h6>
+                                <small class="text-muted">Fast-track your potential</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<!-- Why Join Us Section -->
-		<section class="py-5 bg-white">
-			<div class="container py-4">
-				<div class="text-center mb-5">
-					<span class="badge-pill">WHY JOIN US</span>
-					<h2 class="fw-bold text-dark mt-2">Grow your career with
-						confidence</h2>
-				</div>
+    <!-- Why Join Us Section -->
+    <section class="py-5 bg-white">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <span class="badge-pill badge-blue mb-2">Our Culture & Perks</span>
+                <h2 class="fw-bold text-dark mt-1">Why You Will Love Working at HR Synergy</h2>
+                <p class="text-muted small">We prioritize employee well-being, transparent compensation, and a healthy work-life balance.</p>
+            </div>
 
-				<div class="row g-4">
-					<!-- Feature 1 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="feature-card h-100">
-							<div class="icon-box2 text-center">
-								<i class="bi bi-graph-up"></i>
-							</div>
-							<h5 class="fw-bold text-dark">Career Growth</h5>
-							<p class="text-muted small mb-0">Clear growth trajectories
-								with direct career roadmap mentoring and progression pathways.</p>
-						</div>
-					</div>
-					<!-- Feature 2 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="feature-card h-100">
-							<div class="icon-box2 text-center">
-								<i class="bi bi-mortarboard"></i>
-							</div>
-							<h5 class="fw-bold text-dark">Learning Opportunities</h5>
-							<p class="text-muted small mb-0">Continuous learning budget,
-								workshops, and skills building resources access.</p>
-						</div>
-					</div>
-					<!-- Feature 3 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="feature-card h-100">
-							<div class="icon-box2 text-center">
-								<i class="bi bi-people"></i>
-							</div>
-							<h5 class="fw-bold text-dark">Mentorship Training</h5>
-							<p class="text-muted small mb-0">Work alongside industry
-								leaders and get hands-on support every step of the way.</p>
-						</div>
-					</div>
-					<!-- Feature 4 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="feature-card h-100">
-							<div class="icon-box2 text-center">
-								<i class="bi bi-emoji-smile"></i>
-							</div>
-							<h5 class="fw-bold text-dark">Friendly Environment</h5>
-							<p class="text-muted small mb-0">Inclusive workspace built on
-								mutual respect, collaboration, and continuous support.</p>
-						</div>
-					</div>
-					<!-- Feature 5 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="feature-card h-100">
-							<div class="icon-box2 text-center">
-								<i class="bi bi-cash-stack"></i>
-							</div>
-							<h5 class="fw-bold text-dark">Competitive Salary</h5>
-							<p class="text-muted small mb-0">Fair market compensation
-								aligned with experience, industry standard and performance.</p>
-						</div>
-					</div>
-					<!-- Feature 6 -->
-					<div class="col-md-6 col-lg-4">
-						<div class="feature-card h-100">
-							<div class="icon-box2 ">
-								<i class="bi bi-award"></i>
-							</div>
-							<h5 class="fw-bold text-dark">Recognition & Rewards</h5>
-							<p class="text-muted small mb-0">Regular performance rewards,
-								tenure recognition, and employee appreciation.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3"><i class="ti ti-trending-up"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Accelerated Career Trajectory</h5>
+                        <p class="text-muted small mb-0">Clear promotion pathways with regular mentorship and leadership coaching programs.</p>
+                    </div>
+                </div>
 
-		<!-- Open Positions Title Anchor -->
-		<section id="jobs" class="py-4 text-center">
-			<div class="container">
-				<span class="badge-pill">OPEN POSITIONS</span>
-				<h2 class="fw-bold text-dark mt-2">Current Job Openings</h2>
-			</div>
-		</section>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3"><i class="ti ti-school"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Continuous Learning Stipend</h5>
+                        <p class="text-muted small mb-0">Generous annual budget for certifications, tech conferences, and specialized courses.</p>
+                    </div>
+                </div>
 
-		<!-- Hiring Process Section -->
-		<section class="py-5 bg-light">
-			<div class="container">
-				<div class="text-center mb-5">
-					<span class="badge-pill">HIRING PROCESS</span>
-					<h2 class="fw-bold text-dark mt-2">Simple and transparent
-						recruitment</h2>
-				</div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3"><i class="ti ti-heart-handshake"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Supportive & Inclusive Culture</h5>
+                        <p class="text-muted small mb-0">An empowering, ego-free workplace that values collaborative wins and psychological safety.</p>
+                    </div>
+                </div>
 
-				<div class="row g-3 justify-content-center">
-					<div class="col-6 col-md-4 col-lg-2">
-						<div class="process-card">
-							<div class="step-badge">01</div>
-							<i class="bi bi-file-earmark-text text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Apply Online</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-4 col-lg-2">
-						<div class="process-card">
-							<div class="step-badge">02</div>
-							<i class="bi bi-telephone text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Screening Call</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-4 col-lg-2">
-						<div class="process-card">
-							<div class="step-badge">03</div>
-							<i class="bi bi-code-square text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Technical Test</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-4 col-lg-2">
-						<div class="process-card">
-							<div class="step-badge">04</div>
-							<i class="bi bi-person-video3 text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">HR Interview</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-4 col-lg-2">
-						<div class="process-card">
-							<div class="step-badge">05</div>
-							<i class="bi bi-envelope-check text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Offer Letter</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3"><i class="ti ti-coin"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Competitive Market Pay</h5>
+                        <p class="text-muted small mb-0">Top-tier compensation packages, regular salary reviews, and performance incentives.</p>
+                    </div>
+                </div>
 
-		<!-- Employee Benefits Section -->
-		<section class="py-5 bg-white">
-			<div class="container">
-				<div class="text-center mb-5">
-					<span class="badge-pill">BENEFITS</span>
-					<h2 class="fw-bold text-dark mt-2">Employee benefits designed
-						for you</h2>
-				</div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3"><i class="ti ti-clock"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Flexible & Hybrid Hours</h5>
+                        <p class="text-muted small mb-0">Focus on outcomes rather than desk hours with flexible remote-friendly policies.</p>
+                    </div>
+                </div>
 
-				<div class="row g-3">
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-shield-check text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Health Insurance</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-hourglass-split text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Flexible Hours</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-heart-pulse text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Wellness Programs</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-airplane text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Paid Leave</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-laptop text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Remote Support</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-gift text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Performance Bonus</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-house-door text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Work from Home</h6>
-						</div>
-					</div>
-					<div class="col-6 col-md-3">
-						<div class="benefit-item">
-							<i class="bi bi-calendar-event text-primary fs-3 mb-2 d-block"></i>
-							<h6 class="fw-bold text-dark mb-0">Annual Events</h6>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3"><i class="ti ti-award"></i></div>
+                        <h5 class="fw-bold text-dark mb-2">Recognition & Rewards</h5>
+                        <p class="text-muted small mb-0">Quarterly peer recognition awards, milestone celebrations, and annual company retreats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<!-- Testimonials Section -->
-		<section class="py-5 bg-light">
-			<div class="container">
-				<div class="text-center mb-5">
-					<span class="badge-pill">TESTIMONIALS</span>
-					<h2 class="fw-bold text-dark mt-2">Why candidates love HR
-						Synergy</h2>
-				</div>
+    <!-- Transparent Hiring Roadmap -->
+    <section class="py-5 bg-light border-top border-bottom">
+        <div class="container text-center">
+            <span class="badge-pill badge-blue mb-2">Interview Lifecycle</span>
+            <h2 class="fw-bold text-dark mb-5">Our Transparent Recruitment Process</h2>
 
-				<div class="row g-4">
-					<!-- Testimonial 1 -->
-					<div class="col-md-4">
-						<div class="card border-0 rounded-4 shadow-sm h-100 p-4">
-							<div class="text-warning mb-3">
-								<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-									class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-									class="bi bi-star-fill"></i>
-							</div>
-							<p class="text-muted small flex-grow-1">"The culture here is
-								unmatched. I have found incredible support and mentorship since
-								day one!"</p>
-							<div>
-								<h6 class="fw-bold text-dark mb-0">Priya Sharma</h6>
-								<small class="text-muted">Software Engineer</small>
-							</div>
-						</div>
-					</div>
-					<!-- Testimonial 2 -->
-					<div class="col-md-4">
-						<div class="card border-0 rounded-4 shadow-sm h-100 p-4">
-							<div class="text-warning mb-3">
-								<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-									class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-									class="bi bi-star-fill"></i>
-							</div>
-							<p class="text-muted small flex-grow-1">"Clear career
-								trajectories and great compensation. HR Synergy truly cares for
-								its employees."</p>
-							<div>
-								<h6 class="fw-bold text-dark mb-0">Rahul Verma</h6>
-								<small class="text-muted">Product Manager</small>
-							</div>
-						</div>
-					</div>
-					<!-- Testimonial 3 -->
-					<div class="col-md-4">
-						<div class="card border-0 rounded-4 shadow-sm h-100 p-4">
-							<div class="text-warning mb-3">
-								<i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-									class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-									class="bi bi-star-fill"></i>
-							</div>
-							<p class="text-muted small flex-grow-1">"Transparent
-								recruitment process and awesome work-life balance culture."</p>
-							<div>
-								<h6 class="fw-bold text-dark mb-0">Anjali Singh</h6>
-								<small class="text-muted">UI/UX Designer</small>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+            <div class="row g-4 text-start">
+                <div class="col-12 col-md-4 col-lg">
+                    <div class="p-4 rounded-4 border bg-white h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">01</div>
+                        <h6 class="fw-bold text-dark mb-2">Application</h6>
+                        <p class="text-muted small mb-0">Submit profile credentials directly for your target opening.</p>
+                    </div>
+                </div>
 
-		<!-- Statistics Banner -->
-		<section class="stats-section text-center">
-			<div class="container">
-				<div class="row g-4">
-					<div class="col-6 col-md-3">
-						<h2 class="display-5 fw-bold mb-0">100+</h2>
-						<p class="mb-0 text-white-50">Employees</p>
-					</div>
-					<div class="col-6 col-md-3">
-						<h2 class="display-5 fw-bold mb-0">25+</h2>
-						<p class="mb-0 text-white-50">Departments</p>
-					</div>
-					<div class="col-6 col-md-3">
-						<h2 class="display-5 fw-bold mb-0">500+</h2>
-						<p class="mb-0 text-white-50">Successful Hires</p>
-					</div>
-					<div class="col-6 col-md-3">
-						<h2 class="display-5 fw-bold mb-0">98%</h2>
-						<p class="mb-0 text-white-50">Retention Rate</p>
-					</div>
-				</div>
-			</div>
-		</section>
+                <div class="col-12 col-md-4 col-lg">
+                    <div class="p-4 rounded-4 border bg-white h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">02</div>
+                        <h6 class="fw-bold text-dark mb-2">HR Screening</h6>
+                        <p class="text-muted small mb-0">A 20-minute conversation to align on career goals and role scope.</p>
+                    </div>
+                </div>
 
-		<!-- Call to Action Banner -->
-		<section class="py-5 bg-white">
-			<div class="container">
-				<div class="cta-banner text-center">
-					<h2 class="display-6 fw-bold mb-3">Ready to Start Your Career?</h2>
-					<p class="text-light opacity-75 mb-4">Join us today and become
-						part of an extraordinary team.</p>
-					<div class="d-flex justify-content-center gap-3">
-						<a href="#jobs"
-							class="btn btn-light text-primary fw-bold px-4 rounded-pill">View
-							Jobs</a> <a href="#" class="btn btn-outline-light px-4 rounded-pill">Apply
-							Now</a>
-					</div>
-				</div>
-			</div>
-		</section>
+                <div class="col-12 col-md-4 col-lg">
+                    <div class="p-4 rounded-4 border bg-white h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">03</div>
+                        <h6 class="fw-bold text-dark mb-2">Skills Evaluation</h6>
+                        <p class="text-muted small mb-0">Practical technical or domain evaluation with real scenario solving.</p>
+                    </div>
+                </div>
 
-		<!-- FAQ Section -->
-		<section class="py-5 bg-light">
-			<div class="container">
-				<div class="text-center mb-5">
-					<span class="badge-pill">FAQS</span>
-					<h2 class="fw-bold text-dark mt-2">Frequently Asked Questions</h2>
-				</div>
+                <div class="col-12 col-md-4 col-lg">
+                    <div class="p-4 rounded-4 border bg-white h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">04</div>
+                        <h6 class="fw-bold text-dark mb-2">Team Fit</h6>
+                        <p class="text-muted small mb-0">Meet prospective colleagues and explore day-to-day team dynamics.</p>
+                    </div>
+                </div>
 
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="accordion" id="faqAccordion">
-							<div
-								class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
-								<h2 class="accordion-header">
-									<button class="accordion-button fw-semibold" type="button"
-										data-bs-toggle="collapse" data-bs-target="#faq1">How
-										do I apply?</button>
-								</h2>
-								<div id="faq1" class="accordion-collapse collapse show"
-									data-bs-parent="#faqAccordion">
-									<div class="accordion-body text-muted">You can apply
-										directly through our website by choosing an open position and
-										submitting your updated CV.</div>
-								</div>
-							</div>
+                <div class="col-12 col-md-4 col-lg">
+                    <div class="p-4 rounded-4 border bg-white h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">05</div>
+                        <h6 class="fw-bold text-dark mb-2">Offer & Onboard</h6>
+                        <p class="text-muted small mb-0">Receive a competitive written offer and start your onboarding journey.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-							<div
-								class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fw-semibold"
-										type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-										Can I work remotely?</button>
-								</h2>
-								<div id="faq2" class="accordion-collapse collapse"
-									data-bs-parent="#faqAccordion">
-									<div class="accordion-body text-muted">Yes, we offer
-										hybrid and fully remote roles depending on the job title and
-										department requirements.</div>
-								</div>
-							</div>
-
-							<div
-								class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
-								<h2 class="accordion-header">
-									<button class="accordion-button collapsed fw-semibold"
-										type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-										What is the selection process?</button>
-								</h2>
-								<div id="faq3" class="accordion-collapse collapse"
-									data-bs-parent="#faqAccordion">
-									<div class="accordion-body text-muted">Our standard
-										hiring process involves initial screening, a technical
-										assessment, and an interview round with HR/Management.</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-
-		<div class="container">
-			<!-- Contact Box -->
-			<div class="contact-card mb-5">
-				<div class="row gy-4 align-items-center">
-					<div class="col-lg-6">
-						<h3 class="text-white fw-bold mb-2">Contact HR</h3>
-						<p class="mb-0">Have questions? Reach out to our HR team and
-							we will get back to you shortly.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</main>
+    <!-- Bottom CTA Banner -->
+    <section class="py-5">
+        <div class="container">
+            <div class="dash-hero-banner text-center py-5">
+                <h2 class="display-6 fw-bold text-white mb-2">Ready to Join HR Synergy?</h2>
+                <p class="opacity-90 mb-4 fs-6" style="max-width: 600px; margin: 0 auto;">
+                    Explore active openings or register your candidate profile today.
+                </p>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <a href="/jobs" class="dash-hero-btn btn-solid-light">
+                        <i class="ti ti-briefcase"></i> Browse All Openings
+                    </a>
+                    <a href="/registration" class="dash-hero-btn">
+                        <i class="ti ti-user-plus"></i> Candidate Registration
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>

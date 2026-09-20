@@ -1,116 +1,143 @@
+<!DOCTYPE html>
 <html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
 <body>
-	<main>
-		<h1>View job Seekers</h1>
-		<div th:if="${msg}">
-			<p th:text="${msg}" style="color: red; text-align: center;"></p>
-		</div>
-		<hr />
-		<main class="container my-4">
+<main>
+    <!-- Header Card -->
+    <div class="dash-card p-4 mb-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill small">
+                        <i class="ti ti-users"></i> Talent Pool
+                    </span>
+                    <span class="text-muted small">&bull; <span th:text="${#lists.size(users)}">0</span> Candidates Registered</span>
+                </div>
+                <h3 class="fw-bold text-dark mb-1">Registered Job Seekers</h3>
+                <p class="text-muted small mb-0">Browse and manage candidate profiles, qualifications, and skill sets.</p>
+            </div>
+            <div class="d-flex gap-2 flex-wrap">
+                <a href="/registration" class="btn btn-primary rounded-pill px-3 shadow-sm">
+                    <i class="ti ti-user-plus me-1"></i> Add Candidate
+                </a>
+                <a href="/admin/admindashboard" class="btn btn-sm btn-dash-secondary">
+                    <i class="ti ti-arrow-left"></i> Dashboard
+                </a>
+            </div>
+        </div>
 
-			<!-- Dashboard Banner -->
-			<div
-				class="p-4 p-md-5 mb-4 rounded-4 text-white bg-gradient-primary shadow-sm">
-				<div
-					class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
-					<div class="text-white">
-						<h2 class="fw-bold mb-1 text-white">
-							<i class="bi bi-person-lines-fill me-2"></i> Employee List
-						</h2>
-						<p class="mb-0 opacity-75">Manage employee records,
-							departments, and designations effectively.</p>
-					</div>
-					<div class="d-flex gap-2 flex-wrap">
-						<button class="btn btn-light text-primary fw-semibold shadow-sm">
-							<a class="text-decoration-none" href="/registration"><i
-								class="bi bi-person-plus-fill me-1"></i> Add Employee</a>
-						</button>
-						<button class="btn btn-outline-light">
-							<i class="bi bi-arrow-left me-1"></i><a
-								class="text-decoration-none text-white "
-								href="/admin/admindashboard">Dashboard 
-						</button>
-					</div>
-				</div>
-			</div>
+        <!-- Search Bar -->
+        <div class="mt-3 pt-3 border-top">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0 text-muted">
+                    <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="candidateSearchInput" class="form-control border-start-0 ps-0" placeholder="Search by candidate name, email, skills, qualification, or city..." onkeyup="filterCandidates()">
+            </div>
+        </div>
+    </div>
 
-			<!-- Filter & Search Controls -->
-			<div class="card p-3 mb-4">
-				<div class="row g-3">
-					<div class="col-md-8 col-lg-9">
-						<div class="input-group">
-							<span class="input-group-text bg-white border-end-0 text-muted">
-								<i class="bi bi-search"></i>
-							</span> <input type="text" class="form-control border-start-0 ps-0"
-								placeholder="Search by name, department, designation..." />
-						</div>
-					</div>
-					<div class="col-md-4 col-lg-3 d-flex gap-2">
-						<button class="btn btn-primary w-100">
-							<i class="bi bi-search me-1"></i> Search
-						</button>
-						<button class="btn btn-outline-secondary">
-							<i class="bi bi-arrow-counterclockwise"></i>
-						</button>
-					</div>
-				</div>
-			</div>
+    <!-- Alert Message -->
+    <div th:if="${msg}" class="alert alert-info alert-dismissible fade show d-flex align-items-center gap-2 mb-4" role="alert">
+        <i class="ti ti-info-circle fs-4"></i>
+        <div class="flex-grow-1">
+            <span th:text="${msg}">Candidate record updated.</span>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
 
-			<!-- Employee Records Table -->
-			<div class="card shadow-sm mb-5">
-				<div class="card-header bg-white py-3">
-					<h5 class="card-title mb-0 fw-bold text-dark">
-						<i class="bi bi-list-task me-2 text-primary"></i> Employee Records
-					</h5>
-				</div>
-				<div class="table-responsive">
-					<table class="table table-hover align-middle mb-0 w-90">
-						<thead>
-							<tr>
-								<th>Id</th>
-								<th>Name</th>
-								<th>Gender</th>
-								<th>Contact No</th>
-								<th>Email Address</th>
-								<th>Qualification</th>
-								<th>Experience</th>
-								<th>Key Skills</th>
-								<th>Address</th>
-								<th class="text-end">Actions</th>
+    <!-- Candidates Table Card -->
+    <div class="dash-card">
+        <div class="dash-card-header">
+            <h5 class="dash-card-title">
+                <i class="ti ti-user-check text-primary fs-5"></i> Candidate Directory
+            </h5>
+            <span class="badge-pill badge-indigo small" th:text="${#lists.size(users)} + ' Candidates'">0 Candidates</span>
+        </div>
+        <div class="table-responsive">
+            <table class="dash-table" id="candidatesTable">
+                <thead>
+                    <tr>
+                        <th>Candidate Profile</th>
+                        <th>Contact Details</th>
+                        <th>Qualification</th>
+                        <th>Experience</th>
+                        <th>Key Skills</th>
+                        <th>Location</th>
+                        <th class="text-end">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}" class="candidate-row">
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold small" style="width: 38px; height: 38px; flex-shrink: 0;">
+                                    <span th:text="${#strings.substring(user.name, 0, 1)}">U</span>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark candidate-name" th:text="${user.name}">Candidate Name</div>
+                                    <span class="badge bg-light text-muted border small" th:text="${user.gender}">Gender</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="small text-dark fw-medium mb-1">
+                                <i class="ti ti-phone text-muted me-1"></i><span th:text="${user.contactno}">+91 9876543210</span>
+                            </div>
+                            <div class="small text-muted">
+                                <i class="ti ti-mail text-muted me-1"></i><span class="candidate-email" th:text="${user.emailaddress}">email@example.com</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark border small" th:text="${user.qualification}">Degree</span>
+                        </td>
+                        <td>
+                            <span class="fw-semibold text-dark small" th:text="${user.experience}">Experience</span>
+                        </td>
+                        <td>
+                            <span class="badge bg-primary-subtle text-primary small candidate-skills" th:text="${user.keyskill}">Skills</span>
+                        </td>
+                        <td>
+                            <span class="small text-muted candidate-address" th:text="${user.address}">Address</span>
+                        </td>
+                        <td class="text-end">
+                            <a th:href="@{/admin/deleteusers(id=${user.userid})}" 
+                               class="btn-dash-danger"
+                               onclick="return confirm('Are you sure you want to permanently delete this candidate record?');">
+                                <i class="ti ti-trash"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(users)}">
+                        <td colspan="7" class="text-center py-5 text-muted">
+                            <i class="ti ti-users-off fs-1 d-block mb-2 text-subtle"></i>
+                            <h6 class="fw-bold text-dark">No Job Seekers Registered</h6>
+                            <p class="small text-muted mb-3">Registered candidate records will appear here.</p>
+                            <a href="/registration" class="btn btn-sm btn-primary rounded-pill px-3">
+                                <i class="ti ti-user-plus me-1"></i> Register First Candidate
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-							</tr>
+    <!-- Filter JS -->
+    <script>
+        function filterCandidates() {
+            const query = document.getElementById('candidateSearchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('.candidate-row');
 
-						</thead>
-						<tbody>
-							<tr th:each="user :${users}">
-								<td th:text="${user.userid}"></td>
-								<td th:text="${user.name}"></td>
-								<td th:text="${user.gender}"></td>
-								<td th:text="${user.contactno}"></td>
-								<td th:text="${user.emailaddress}"></td>
-								<td th:text="${user.qualification}"></td>
-								<td th:text="${user.experience}"></td>
-								<td th:text="${user.keyskill}"></td>
-								<td th:text="${user.address}"></td>
-								<td><span class="badge bg-light text-primary border"></span></td>
-								<td class="fw-bold"></td>
-								<td class="text-end">
-									<button class="btn btn-sm btn-warning me-1">
-										<i class="bi bi-pencil-square"></i> Edit
-									</button>
-									<button class="btn btn-sm btn-danger">
-										<a th:href="@{/admin/deleteusers(id=${user.userid})}">Delete</a>
-									</button>
-								</td>
-							</tr>
-
-						</tbody>
-					</table>
-				</div>
-			</div>
-
-		</main>
-
-	</main>
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (!query || text.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</main>
 </body>
 </html>

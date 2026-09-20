@@ -1,40 +1,127 @@
+<!DOCTYPE html>
 <html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
 <body>
- <main>
- 	<h1>View job Enquiry</h1>
- 	<div th:if="${msg}">
- 	<p th:text="${msg}" style="color:red;text-align:center;"></p>
- 	</div>
- 	<hr/>
- 	<table class="table table-bordered">
- 	<thead>
- 	<tr>
- 	<th>ID</th>
- 	<th>Name</th>
- 	<th>Address</th>
- 	<th>Contact No</th>
- 	<th>Enquiry Text</th>
- 	<th>Delete</th>
- 	
- 	</tr>
- 	</thead>
- 	<tbody>
- 	<tr th:each="p :${people}">
- 	<td th:text="${p.id}"></td>
- 	<td th:text="${p.name}"></td>
- 	<td th:text="${p.address}"></td>
- 	<td th:text="${p.contactno}"></td>
- 	<td th:text="${p.enquirytext}"></td>
- 	<td>
- 	<a th:href="@{/admin/deletepeople(id=${p.id})}" class="btn btn-danger btn-sm">
- 	Delete
- 	</a>
- 	</td>
- 	
- 	</tr>
- 	</tbody>
- 	
- 	</table>
- </main>
+<main>
+    <!-- Header Card -->
+    <div class="dash-card p-4 mb-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill small">
+                        <i class="ti ti-messages"></i> Communications
+                    </span>
+                    <span class="text-muted small">&bull; <span th:text="${#lists.size(people)}">0</span> Messages Received</span>
+                </div>
+                <h3 class="fw-bold text-dark mb-1">General Inquiries & Messages</h3>
+                <p class="text-muted small mb-0">Review inquiries submitted through the public contact and job seeker forms.</p>
+            </div>
+            <div class="d-flex gap-2">
+                <a href="/admin/admindashboard" class="btn btn-sm btn-dash-secondary">
+                    <i class="ti ti-arrow-left"></i> Dashboard
+                </a>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="mt-3 pt-3 border-top">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0 text-muted">
+                    <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="enquirySearchInput" class="form-control border-start-0 ps-0" placeholder="Filter by sender name, contact number, or message content..." onkeyup="filterEnquiries()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Alert -->
+    <div th:if="${msg}" class="alert alert-info alert-dismissible fade show d-flex align-items-center gap-2 mb-4" role="alert">
+        <i class="ti ti-info-circle fs-4"></i>
+        <div class="flex-grow-1">
+            <span th:text="${msg}">Enquiry updated.</span>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- Enquiries Table Card -->
+    <div class="dash-card">
+        <div class="dash-card-header">
+            <h5 class="dash-card-title">
+                <i class="ti ti-inbox text-primary fs-5"></i> Inquiries Inbox
+            </h5>
+            <span class="badge-pill badge-indigo small" th:text="${#lists.size(people)} + ' Records'">0 Records</span>
+        </div>
+        <div class="table-responsive">
+            <table class="dash-table" id="enquiryTable">
+                <thead>
+                    <tr>
+                        <th>Sender Name</th>
+                        <th>Contact & Location</th>
+                        <th>Message Content</th>
+                        <th class="text-end">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="p : ${people}" class="enquiry-row">
+                        <td>
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold small" style="width: 38px; height: 38px; flex-shrink: 0;">
+                                    <span th:text="${#strings.substring(p.name, 0, 1)}">U</span>
+                                </div>
+                                <div>
+                                    <div class="fw-bold text-dark enquiry-sender" th:text="${p.name}">Sender Name</div>
+                                    <small class="text-muted">ID: #<span th:text="${p.id}">1</span></small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="small text-dark fw-medium mb-1">
+                                <i class="ti ti-phone text-success me-1"></i><span class="enquiry-phone" th:text="${p.contactno}">+91 9876543210</span>
+                            </div>
+                            <div class="small text-muted">
+                                <i class="ti ti-map-pin text-danger me-1"></i><span class="enquiry-address" th:text="${p.address}">City, Location</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text-dark small enquiry-text" style="max-width: 400px; white-space: normal;" th:text="${p.enquirytext}">
+                                Inquired about job openings for experienced candidates...
+                            </div>
+                        </td>
+                        <td class="text-end">
+                            <a th:href="@{/admin/deletepeople(id=${p.id})}" 
+                               class="btn-dash-danger"
+                               onclick="return confirm('Are you sure you want to permanently delete this inquiry?');">
+                                <i class="ti ti-trash"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(people)}">
+                        <td colspan="4" class="text-center py-5 text-muted">
+                            <i class="ti ti-message-off fs-1 d-block mb-2 text-subtle"></i>
+                            <h6 class="fw-bold text-dark">No Pending Inquiries</h6>
+                            <p class="small text-muted mb-0">Incoming customer or job seeker messages will be listed here.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Filter JS -->
+    <script>
+        function filterEnquiries() {
+            const query = document.getElementById('enquirySearchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('.enquiry-row');
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (!query || text.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</main>
 </body>
 </html>

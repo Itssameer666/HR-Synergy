@@ -43,12 +43,32 @@ public class UserController {
 	
 	
 	@GetMapping("/user/userdash")
-public String userDashboard(HttpSession session) {
-	if(session.getAttribute("user")==null) {
-		return "redirect:/login";
+	public String userDashboard(HttpSession session, Model model) {
+		if (session.getAttribute("user") == null) {
+			return "redirect:/login";
+		}
+		User user = (User) session.getAttribute("user");
+		model.addAttribute("user", user);
+		model.addAttribute("availableJobsCount", jrepo.count());
+
+		List<AppliedJob> allApplied = ajrepo.findAll();
+		List<AppliedJob> myApplications = allApplied.stream()
+				.filter(a -> a.getEmailaddress() != null && a.getEmailaddress().equalsIgnoreCase(user.getEmailaddress()))
+				.toList();
+
+		model.addAttribute("myApplicationsCount", myApplications.size());
+		model.addAttribute("myApplications", myApplications);
+
+		List<JobInfo> allJobs = jrepo.findAll();
+		model.addAttribute("latestJobs", allJobs.size() > 6 ? allJobs.subList(allJobs.size() - 6, allJobs.size()) : allJobs);
+
+		List<Response> myResponses = rrepo.findAll().stream()
+				.filter(r -> r.getName() != null && r.getName().equalsIgnoreCase(user.getName()))
+				.toList();
+		model.addAttribute("myResponsesCount", myResponses.size());
+
+		return "user/userdash";
 	}
-	return "user/userdash";
-}
 	
 	@GetMapping("user/viewjobs")
 	public String viewJobs(HttpSession session, Model model) {
@@ -139,7 +159,7 @@ public String userDashboard(HttpSession session) {
 		}
    		User user=(User) session.getAttribute("user");
    		model.addAttribute("user",user);
-   		return "/user/viewprofile";
+   		return "user/viewprofile";
    	 }
    	 @GetMapping("/user/applyjob/{id}")
    	 public String applyJob(@PathVariable("id") int id,HttpSession session,RedirectAttributes attrib) {

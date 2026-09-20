@@ -1,0 +1,56 @@
+services:
+  # ============================================
+  # MySQL Database Service
+  # ============================================
+  hrms-db:
+    image: mysql:8.0
+    container_name: hrms-mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: hrmsdb
+      MYSQL_ROOT_PASSWORD: sameer@1234
+    ports:
+      # Exposed on host port 3307 to avoid conflict with existing local MySQL
+      - "3307:3306"
+    volumes:
+      - hrms-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-psameer@1234"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    networks:
+      - hrms-network
+
+  # ============================================
+  # Spring Boot HRMS Web Application
+  # ============================================
+  hrms-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hrms-web-app
+    restart: unless-stopped
+    depends_on:
+      hrms-db:
+        condition: service_healthy
+    environment:
+      DB_HOST: hrms-db
+      DB_PORT: "3306"
+      DB_NAME: hrmsdb
+      DB_USERNAME: root
+      DB_PASSWORD: sameer@1234
+      PORT: "8181"
+    ports:
+      - "8181:8181"
+    networks:
+      - hrms-network
+
+volumes:
+  hrms-mysql-data:
+    driver: local
+
+networks:
+  hrms-network:
+    driver: bridge

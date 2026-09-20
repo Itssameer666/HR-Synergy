@@ -1,245 +1,354 @@
 <html lang="en" th:replace="~{base::layout(~{::main})}">
 <body>
-
 <main>
-<head>
- <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-</head>
-    <!-- Hero Section -->
-    <section class="py-5">
+    <!-- Hero Section (Blue & White Theme with pic1.avif) -->
+    <section class="py-5 py-lg-6" style="background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);">
         <div class="container">
-            <div class="row align-items-center g-4">
+            <div class="row align-items-center g-5">
                 <div class="col-lg-6">
-                    <span class="badge-pill mb-3">Modern HRMS Solution</span>
-                    <h1 class="display-5 fw-bold text-dark mb-3">Manage Your Human Resources Smarter</h1>
-                    <p class="text-muted mb-4 fs-6">
-                        HR Synergy is a smart Human Resource Management System for employee management, attendance, leave, payroll, recruitment, feedback, and user reporting.
+                    <!-- Hero Pill Badge -->
+                    <div class="dash-hero-badge bg-white text-primary border border-primary-subtle shadow-xs mb-3">
+                        <i class="ti ti-sparkles text-primary"></i> Next-Gen HRMS & Career Platform
+                    </div>
+
+                    <!-- Main Headline -->
+                    <h1 class="display-5 fw-bold text-dark mb-3" style="letter-spacing: -0.03em; line-height: 1.18;">
+                        Manage Human Resources Smarter. <br>
+                        <span style="background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Empower Your Talent with HR Synergy.</span>
+                    </h1>
+
+                    <p class="text-muted fs-6 mb-4" style="line-height: 1.7; max-width: 540px;">
+                        HR Synergy is a smart, end-to-end Human Resource Management System designed to connect ambitious job seekers with enterprise opportunities, manage recruitment pipelines, and streamline workforce operations.
                     </p>
-                    <div class="d-flex flex-wrap gap-2">
-                        <a href="#" class="btn btn-primary-custom">Login Now</a>
-                        <a href="#" class="btn btn-outline-custom">View Jobs</a>
+
+                    <!-- CTAs -->
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <a href="/jobs" class="btn btn-primary rounded-pill px-4 py-2 fw-semibold shadow-sm">
+                            <i class="ti ti-briefcase me-1"></i> Browse Openings
+                        </a>
+                        <a href="/registration" class="btn btn-outline-primary rounded-pill px-4 py-2 fw-semibold">
+                            <i class="ti ti-user-plus me-1"></i> Candidate Sign Up
+                        </a>
+                        <a href="/adminlogin" class="btn btn-light border text-dark rounded-pill px-3 py-2 fw-semibold">
+                            <i class="ti ti-shield-lock me-1"></i> Admin Portal
+                        </a>
+                    </div>
+
+                    <!-- Highlights Strip -->
+                    <div class="d-flex align-items-center gap-4 pt-3 border-top">
+                        <div>
+                            <h4 class="fw-bold text-dark mb-0">100%</h4>
+                            <small class="text-muted">Digital System</small>
+                        </div>
+                        <div class="border-start ps-4">
+                            <h4 class="fw-bold text-dark mb-0">24/7</h4>
+                            <small class="text-muted">Portal Access</small>
+                        </div>
+                        <div class="border-start ps-4">
+                            <h4 class="fw-bold text-dark mb-0">Secure</h4>
+                            <small class="text-muted">Role-Based Auth</small>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Hero Image (Original pic1.avif preserved) -->
                 <div class="col-lg-6 text-center">
-                    <img src="images/pic1.avif" alt="HRMS Platform" class="img-fluid rounded-4 shadow">
+                    <div class="position-relative">
+                        <div class="position-absolute top-50 start-50 translate-middle rounded-circle" style="width: 340px; height: 340px; background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(255,255,255,0) 70%); filter: blur(30px); pointer-events: none;"></div>
+                        <img src="/images/pic1.avif" alt="HR Synergy Platform" class="img-fluid rounded-4 shadow-lg border position-relative" style="max-height: 420px; width: 100%; object-fit: cover;">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Key Stats/Highlights Row -->
-    <section class="py-4">
+    <!-- Key Platform Highlights Strip -->
+    <section class="py-5 bg-white border-bottom border-top">
         <div class="container">
-            <div class="row g-3">
+            <div class="row g-4">
                 <div class="col-6 col-md-3">
-                    <div class="stat-card p-4 text-center bg-white">
-                        <div class="icon-box-blue"><i class="fa-solid fa-cloud"></i></div>
-                        <h4 class="fw-bold mb-1">100%</h4>
-                        <span class="text-muted small">Digital Platform</span>
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="stat-kpi-icon icon-blue rounded-3" style="width: 44px; height: 44px;">
+                            <i class="ti ti-cloud"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold text-dark mb-1">100% Digital</h6>
+                            <p class="text-muted small mb-0">Unified paperless workforce & recruitment workflow.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="stat-card p-4 text-center bg-white">
-                        <div class="icon-box-blue"><i class="fa-solid fa-clock"></i></div>
-                        <h4 class="fw-bold mb-1">24/7</h4>
-                        <span class="text-muted small">Employee Access</span>
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="stat-kpi-icon icon-blue rounded-3" style="width: 44px; height: 44px;">
+                            <i class="ti ti-shield-check"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold text-dark mb-1">Secure RBAC</h6>
+                            <p class="text-muted small mb-0">Isolated candidate & administrative portals.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="stat-card p-4 text-center bg-white">
-                        <div class="icon-box-blue"><i class="fa-solid fa-shield-halved"></i></div>
-                        <h4 class="fw-bold mb-1">Secure</h4>
-                        <span class="text-muted small">Role Login</span>
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="stat-kpi-icon icon-blue rounded-3" style="width: 44px; height: 44px;">
+                            <i class="ti ti-clock"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold text-dark mb-1">Fast Tracking</h6>
+                            <p class="text-muted small mb-0">Real-time application status and candidate records.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
-                    <div class="stat-card p-4 text-center bg-white">
-                        <div class="icon-box-blue"><i class="fa-solid fa-thumbs-up"></i></div>
-                        <h4 class="fw-bold mb-1">Easy</h4>
-                        <span class="text-muted small">HR Control</span>
+                    <div class="d-flex align-items-start gap-3">
+                        <div class="stat-kpi-icon icon-blue rounded-3" style="width: 44px; height: 44px;">
+                            <i class="ti ti-messages"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold text-dark mb-1">Feedback SLA</h6>
+                            <p class="text-muted small mb-0">Built-in candidate queries, complaints & feedback.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About HR Synergy Section (Original pic2.avif preserved) -->
     <section class="py-5">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-lg-5">
-                    <img src="images/pic2.avif" alt="About HR Synergy" class="img-fluid rounded-4 shadow-sm">
+                <div class="col-lg-6">
+                    <img src="/images/pic2.avif" alt="About HR Synergy" class="img-fluid rounded-4 shadow-sm border w-100" style="max-height: 400px; object-fit: cover;">
                 </div>
-                <div class="col-lg-7">
-                    <span class="badge-pill mb-2">About HR Synergy</span>
-                    <h2 class="fw-bold text-dark mb-3">Complete HR Management Platform</h2>
-                    <p class="text-muted mb-4">
-                        HR Synergy helps organizations to streamline and manage HR operations through a continuous, secure, and user-friendly platform.
+                <div class="col-lg-6">
+                    <span class="badge-pill badge-blue mb-2">About HR Synergy</span>
+                    <h2 class="fw-bold text-dark mb-3">All-In-One HR Management Solution</h2>
+                    <p class="text-muted mb-4" style="line-height: 1.7;">
+                        HR Synergy helps organizations streamline and govern workforce operations through a continuous, secure, and user-friendly platform. From posting vacancies to managing job seekers and responding to feedback, everything operates in harmony.
                     </p>
                     
                     <div class="row g-3">
                         <div class="col-sm-6">
-                            <div class="feature-check-item d-flex align-items-center">
-                                <i class="fa-solid fa-check me-2"></i> Employee Management
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 bg-light border">
+                                <i class="ti ti-circle-check text-primary fs-5"></i>
+                                <span class="fw-semibold small text-dark">Job Seeker Portal</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="feature-check-item d-flex align-items-center">
-                                <i class="fa-solid fa-check me-2"></i> Attendance Tracking
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 bg-light border">
+                                <i class="ti ti-circle-check text-primary fs-5"></i>
+                                <span class="fw-semibold small text-dark">Live Vacancy Board</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="feature-check-item d-flex align-items-center">
-                                <i class="fa-solid fa-check me-2"></i> Leave Management
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 bg-light border">
+                                <i class="ti ti-circle-check text-primary fs-5"></i>
+                                <span class="fw-semibold small text-dark">1-Click Job Apply</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="feature-check-item d-flex align-items-center">
-                                <i class="fa-solid fa-check me-2"></i> Payroll System
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 bg-light border">
+                                <i class="ti ti-circle-check text-primary fs-5"></i>
+                                <span class="fw-semibold small text-dark">Admin Control Desk</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="feature-check-item d-flex align-items-center">
-                                <i class="fa-solid fa-check me-2"></i> Recruitment Module
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 bg-light border">
+                                <i class="ti ti-circle-check text-primary fs-5"></i>
+                                <span class="fw-semibold small text-dark">Application Tracking</span>
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="feature-check-item d-flex align-items-center">
-                                <i class="fa-solid fa-check me-2"></i> Feedback System
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 bg-light border">
+                                <i class="ti ti-circle-check text-primary fs-5"></i>
+                                <span class="fw-semibold small text-dark">Feedback & Enquiry Desk</span>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Core Features Grid -->
     <section class="py-5 bg-light">
         <div class="container text-center">
-            <span class="badge-pill mb-2">HRMS Modules</span>
-            <h2 class="fw-bold text-dark mb-2">Powerful Features</h2>
-            <p class="text-muted mb-5">All HR operations together in one digital system.</p>
+            <span class="badge-pill badge-blue mb-2">Platform Capabilities</span>
+            <h2 class="fw-bold text-dark mb-2">Powerful Features for Modern HR</h2>
+            <p class="text-muted mb-5" style="max-width: 600px; margin: 0 auto;">Streamline job postings, manage applicants, and optimize workforce communication in a single intuitive interface.</p>
 
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="icon-box-blue"><i class="fa-solid fa-user"></i></div>
-                        <h5 class="fw-bold fs-6">Employee Management</h5>
-                        <p class="text-muted small mb-0">Manage profiles, security, roles, and departments.</p>
+            <div class="row g-4 text-start">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3">
+                            <i class="ti ti-briefcase"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">Job Board Directory</h5>
+                        <p class="text-muted small mb-0">Publish openings with salaries, deadlines, job types, and enable 1-click candidate applications.</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="icon-box-blue"><i class="fa-solid fa-calendar-check"></i></div>
-                        <h5 class="fw-bold fs-6">Attendance</h5>
-                        <p class="text-muted small mb-0">Track daily attendance and working records.</p>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3">
+                            <i class="ti ti-users"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">Talent Pool Records</h5>
+                        <p class="text-muted small mb-0">Comprehensive candidate profiles with qualifications, verified experience, and contact details.</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="icon-box-blue"><i class="fa-solid fa-plane"></i></div>
-                        <h5 class="fw-bold fs-6">Leave Management</h5>
-                        <p class="text-muted small mb-0">Apply, approve, and manage employee leaves.</p>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3">
+                            <i class="ti ti-message-dots"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">Feedback & Grievance</h5>
+                        <p class="text-muted small mb-0">Dedicated candidate communication channels for feedback, queries, and dispute resolution.</p>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card text-center">
-                        <div class="icon-box-blue"><i class="fa-solid fa-id-card"></i></div>
-                        <h5 class="fw-bold fs-6">Payroll</h5>
-                        <p class="text-muted small mb-0">Manage company payroll monthly, quickly, accurately.</p>
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="dash-card h-100 p-4 hover-shadow transition">
+                        <div class="stat-kpi-icon icon-blue mb-3 rounded-3">
+                            <i class="ti ti-dashboard"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark mb-2">HR Admin Center</h5>
+                        <p class="text-muted small mb-0">Live hiring analytics, applicant pipelines, enquiry tracking, and system security controls.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Employee Benefits Banner -->
+    <!-- Employee Benefits Banner (Original pic3.avif preserved) -->
     <section class="py-5">
         <div class="container">
-            <div class="banner-gradient-blue p-4 p-lg-5">
+            <div class="dash-hero-banner p-4 p-lg-5">
                 <div class="row align-items-center g-4">
                     <div class="col-lg-7">
-                        <span class="badge bg-white text-primary rounded-pill px-3 py-2 mb-3 fw-bold">Employee Benefits</span>
-                        <h2 class="fw-bold mb-3">Better Employee Experience</h2>
-                        <p class="mb-4 opacity-90">Provide essential self-services, employee support, benefit access, and a smooth digital experience.</p>
-                        <a href="#" class="btn btn-light text-primary rounded-pill px-4 fw-bold">Explore Features</a>
+                        <span class="badge bg-white text-primary rounded-pill px-3 py-2 mb-3 fw-bold">
+                            <i class="ti ti-gift"></i> Employee & Candidate Benefits
+                        </span>
+                        <h2 class="fw-bold text-white mb-3">A Better Workforce Experience</h2>
+                        <p class="text-white opacity-90 mb-4" style="line-height: 1.7;">
+                            Provide essential self-service options, candidate transparency, immediate feedback mechanisms, and a smooth digital career onboarding journey.
+                        </p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="/jobs" class="dash-hero-btn btn-solid-light">
+                                <i class="ti ti-briefcase"></i> Explore Available Jobs
+                            </a>
+                            <a href="/registration" class="dash-hero-btn">
+                                <i class="ti ti-user-plus"></i> Join HR Synergy
+                            </a>
+                        </div>
                     </div>
                     <div class="col-lg-5 text-center">
-                        <img src="images/pic3.avif" alt="Employee Benefits" class="img-fluid rounded-3 shadow" style="height:400px;">
+                        <img src="/images/pic3.avif" alt="Employee Benefits" class="img-fluid rounded-4 shadow-lg border border-white border-opacity-25" style="max-height: 360px; width: 100%; object-fit: cover;">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works Section -->
-    <section class="py-5">
+    <!-- Workflow Steps: How HR Synergy Works -->
+    <section class="py-5 bg-white border-top border-bottom">
         <div class="container text-center">
-            <span class="badge-pill mb-2">Workflow</span>
+            <span class="badge-pill badge-blue mb-2">Workflow</span>
             <h2 class="fw-bold text-dark mb-5">How HR Synergy Works</h2>
 
             <div class="row g-4 text-start">
-                <div class="col-md-4">
-                    <div class="process-card p-4">
-                        <div class="process-number mb-2">01</div>
-                        <h5 class="fw-bold text-dark">Admin Setup</h5>
-                        <p class="text-muted small mb-0">Administrators set up employees, departments, roles, and key system parameters.</p>
+                <div class="col-12 col-md-4">
+                    <div class="p-4 rounded-4 border bg-light h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">01</div>
+                        <h5 class="fw-bold text-dark mb-2">Admin Setup & Job Posting</h5>
+                        <p class="text-muted small mb-0">HR administrators post active vacancies with departments, eligibility criteria, and compensation.</p>
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="process-card p-4">
-                        <div class="process-number mb-2">02</div>
-                        <h5 class="fw-bold text-dark">Employee Login</h5>
-                        <p class="text-muted small mb-0">Employees log in to view profile, apply for leave, and give feedback.</p>
+                <div class="col-12 col-md-4">
+                    <div class="p-4 rounded-4 border bg-light h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">02</div>
+                        <h5 class="fw-bold text-dark mb-2">Candidate Registration & Apply</h5>
+                        <p class="text-muted small mb-0">Candidates register securely, update their profiles, and submit 1-click applications.</p>
                     </div>
                 </div>
 
-                <div class="col-md-4">
-                    <div class="process-card p-4">
-                        <div class="process-number mb-2">03</div>
-                        <h5 class="fw-bold text-dark">HR Monitoring</h5>
-                        <p class="text-muted small mb-0">HR tracks requests, employee data, and reports seamlessly.</p>
+                <div class="col-12 col-md-4">
+                    <div class="p-4 rounded-4 border bg-light h-100">
+                        <div class="display-6 fw-bold text-primary mb-2">03</div>
+                        <h5 class="fw-bold text-dark mb-2">Review, Feedback & Tracking</h5>
+                        <p class="text-muted small mb-0">HR reviews candidate submissions, manages candidate enquiries, and handles feedback in real time.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Visuals / Gallery Section -->
+    <!-- Visuals / Gallery Section (Original pic4.avif, pic5.avif, pic6.avif preserved) -->
     <section class="py-5 bg-light">
         <div class="container text-center">
-            <span class="badge-pill mb-2">Gallery</span>
-            <h2 class="fw-bold text-dark mb-5">HRMS Visuals</h2>
+            <span class="badge-pill badge-blue mb-2">Gallery</span>
+            <h2 class="fw-bold text-dark mb-2">HRMS Visuals</h2>
+            <p class="text-muted mb-5" style="max-width: 600px; margin: 0 auto;">
+                Experience the interactive, modern environment built for high-efficiency enterprise HR management.
+            </p>
 
             <div class="row g-4">
                 <div class="col-md-4">
-                    <img src="images/pic4.avif" alt="Visual 1" class="gallery-img">
+                    <div class="dash-card p-2 shadow-sm border-0">
+                        <img src="/images/pic4.avif" alt="HR Synergy Workspace" class="img-fluid rounded-3 w-100" style="height: 240px; object-fit: cover;">
+                        <div class="p-3 text-start">
+                            <h6 class="fw-bold text-dark mb-1">Collaborative Workspace</h6>
+                            <small class="text-muted">Designed for modern distributed HR teams</small>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="images/pic5.avif" alt="Visual 2" class="gallery-img">
+                    <div class="dash-card p-2 shadow-sm border-0">
+                        <img src="/images/pic5.avif" alt="Candidate Discussions" class="img-fluid rounded-3 w-100" style="height: 240px; object-fit: cover;">
+                        <div class="p-3 text-start">
+                            <h6 class="fw-bold text-dark mb-1">Candidate Interviews</h6>
+                            <small class="text-muted">Direct communication and structured evaluations</small>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="images/pic6.avif" alt="Visual 3" class="gallery-img">
+                    <div class="dash-card p-2 shadow-sm border-0">
+                        <img src="/images/pic6.avif" alt="Talent Management" class="img-fluid rounded-3 w-100" style="height: 240px; object-fit: cover;">
+                        <div class="p-3 text-start">
+                            <h6 class="fw-bold text-dark mb-1">Talent Development</h6>
+                            <small class="text-muted">Long-term career pathways and growth</small>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Bottom CTA Banner -->
+    <!-- Bottom Call To Action Banner -->
     <section class="py-5">
         <div class="container">
-            <div class="banner-gradient-blue text-center p-5">
-                <h2 class="fw-bold mb-3">Start Managing HR Smarter</h2>
-                <p class="mb-4 opacity-90">Login to access HR Synergy dashboard and manage your HR operations.</p>
-                <a href="#" class="btn btn-light text-primary rounded-pill px-4 py-2 fw-bold">Login Now</a>
+            <div class="dash-hero-banner text-center py-5">
+                <div class="dash-hero-badge">
+                    <i class="ti ti-rocket"></i> Get Started Today
+                </div>
+                <h2 class="display-6 fw-bold text-white mb-2">Start Managing HR Smarter with HR Synergy</h2>
+                <p class="opacity-90 mb-4 fs-6" style="max-width: 600px; margin: 0 auto;">
+                    Join thousands of professionals finding opportunities and companies building high-performing teams with HR Synergy.
+                </p>
+                <div class="d-flex justify-content-center flex-wrap gap-2">
+                    <a href="/jobs" class="dash-hero-btn btn-solid-light">
+                        <i class="ti ti-briefcase"></i> View All Open Positions
+                    </a>
+                    <a href="/registration" class="dash-hero-btn">
+                        <i class="ti ti-user-plus"></i> Register as Candidate
+                    </a>
+                    <a href="/login" class="dash-hero-btn">
+                        <i class="ti ti-login"></i> Sign In to Dashboard
+                    </a>
+                </div>
             </div>
         </div>
     </section>

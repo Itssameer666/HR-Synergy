@@ -1,45 +1,141 @@
+<!DOCTYPE html>
 <html lang="en" th:replace="~{admin/adminbase :: layout(~{::main})}">
 <body>
- <main>
- 	<h1>View Posted Jobs</h1>
- 	<div th:if="${msg}">
- 	<p th:text="${msg}" style="color:red;text-align:center;"></p>
- 	</div>
- 	<hr/>
- 	<table class="table table-bordered" style="margin:auto;width:90%;">
- 	<thead>
- 	<tr>
- 	<th>Id</th>
- 	<th>Job Title</th>
- 	<th>Description</th>
- 	<th>Location</th>
- 	<th>Job Type</th>
- 	<th>Last Date </th>
- 	<th>Post Date</th>
- 	<th>Action</th>
- 	
- 	</tr>
- 	</thead>
- 	
- 	<tbody>
- 	<tr th:each="job :${jobs}">
- 	<td th:text="${job.id}"></td>
- 	<td th:text="${job.title}"></td>
- 	<td th:text="${job.description}"></td>
- 	<td th:text="${job.location}"></td>
- 	<td th:text="${job.jobtype}"></td>
- 	<td th:text="${job.lastdate}"></td>
- 	<td th:text="${job.posteddate}"></td>
- 	<td>
- 	<a th:href="@{/admin/deletejobs(id=${job.id})}" class="btn btn-danger btn-sm">
- 	Delete
- 	</a>
- 	</td>
- 	
- 	</tr>
- 	</tbody>
- 	
- 	</table>
- </main>
+<main>
+    <!-- Header Card -->
+    <div class="dash-card p-4 mb-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill small">
+                        <i class="ti ti-briefcase"></i> Job Management
+                    </span>
+                    <span class="text-muted small">&bull; <span th:text="${#lists.size(jobs)}">0</span> Active Postings</span>
+                </div>
+                <h3 class="fw-bold text-dark mb-1">Manage Job Openings</h3>
+                <p class="text-muted small mb-0">Review, search, and manage all published vacancies on the platform.</p>
+            </div>
+            <div class="d-flex gap-2">
+                <a href="/admin/postjob" class="btn btn-primary rounded-pill px-3 shadow-sm">
+                    <i class="ti ti-plus me-1"></i> Post New Job
+                </a>
+                <a href="/admin/admindashboard" class="btn btn-sm btn-dash-secondary">
+                    <i class="ti ti-arrow-left"></i> Dashboard
+                </a>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="mt-3 pt-3 border-top">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0 text-muted">
+                    <i class="ti ti-search"></i>
+                </span>
+                <input type="text" id="jobListSearchInput" class="form-control border-start-0 ps-0" placeholder="Filter by job title, location, type or salary..." onkeyup="filterPostedJobs()">
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification / Alert -->
+    <div th:if="${msg}" class="alert alert-info alert-dismissible fade show d-flex align-items-center gap-2 mb-4" role="alert">
+        <i class="ti ti-info-circle fs-4"></i>
+        <div class="flex-grow-1">
+            <span th:text="${msg}">Job posting updated successfully.</span>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- Job Listings Table Card -->
+    <div class="dash-card">
+        <div class="dash-card-header">
+            <h5 class="dash-card-title">
+                <i class="ti ti-list text-primary fs-5"></i> Published Vacancies
+            </h5>
+            <span class="badge-pill badge-indigo small" th:text="${#lists.size(jobs)} + ' Total'">0 Total</span>
+        </div>
+        <div class="table-responsive">
+            <table class="dash-table" id="postedJobsTable">
+                <thead>
+                    <tr>
+                        <th>Job Title & Overview</th>
+                        <th>Location</th>
+                        <th>Compensation</th>
+                        <th>Type</th>
+                        <th>Application Deadline</th>
+                        <th>Posted Date</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="job : ${jobs}" class="job-row">
+                        <td>
+                            <div class="fw-bold text-dark job-title" th:text="${job.title}">Senior Developer</div>
+                            <small class="text-muted text-truncate d-inline-block job-desc" style="max-width: 280px;" th:text="${job.description}">
+                                Job description snippet...
+                            </small>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center text-muted small">
+                                <i class="ti ti-map-pin text-danger me-1"></i>
+                                <span class="job-location text-dark fw-medium" th:text="${job.location}">Bengaluru, India</span>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="fw-bold text-dark job-salary">₹<span th:text="${job.salary}">60,000</span></span>
+                            <small class="text-muted">/mo</small>
+                        </td>
+                        <td>
+                            <span class="badge-pill"
+                                  th:classappend="${job.jobtype == 'Internship' ? 'badge-amber' : (job.jobtype == 'Part time' ? 'badge-blue' : 'badge-emerald')}"
+                                  th:text="${job.jobtype}">Full Time</span>
+                        </td>
+                        <td>
+                            <span class="text-muted small">
+                                <i class="ti ti-calendar me-1"></i><span th:text="${job.lastdate}">30/11/2026</span>
+                            </span>
+                        </td>
+                        <td>
+                            <span class="text-muted small" th:text="${job.posteddate}">01/10/2026</span>
+                        </td>
+                        <td class="text-end">
+                            <a th:href="@{/admin/deletejobs(id=${job.id})}" 
+                               class="btn-dash-danger"
+                               onclick="return confirm('Are you sure you want to permanently delete this job vacancy?');">
+                                <i class="ti ti-trash"></i> Delete
+                            </a>
+                        </td>
+                    </tr>
+                    <tr th:if="${#lists.isEmpty(jobs)}">
+                        <td colspan="7" class="text-center py-5 text-muted">
+                            <i class="ti ti-briefcase-off fs-1 d-block mb-2 text-subtle"></i>
+                            <h6 class="fw-bold text-dark">No Active Job Postings</h6>
+                            <p class="small text-muted mb-3">You haven't posted any jobs yet.</p>
+                            <a href="/admin/postjob" class="btn btn-sm btn-primary rounded-pill px-3">
+                                <i class="ti ti-plus me-1"></i> Create First Posting
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Filter JS -->
+    <script>
+        function filterPostedJobs() {
+            const query = document.getElementById('jobListSearchInput').value.toLowerCase();
+            const rows = document.querySelectorAll('.job-row');
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                if (!query || text.includes(query)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</main>
 </body>
 </html>

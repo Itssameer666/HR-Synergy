@@ -1,48 +1,146 @@
+<!DOCTYPE html>
 <html lang="en" th:replace="~{user/userbase :: layout(~{::main})}">
 <body>
- <main>
- 	<h1>User Dashboard</h1>
- 	<div th:if="${msg}">
- 	<p th:text="${msg}"></p>
- 	</div>
- 	<hr/>
- 	<h1>View jobs</h1>
- 	<hr/>
- 	<table class="table table-bordered">
- 	<thead>
- 	<tr>
- 	<th>ID</th>
- 	<th>Title</th>
- 	<th>Description</th>
- 	<th>Location</th>
- 	<th>Salary</th>
- 	<th>Job Type</th>
- 	<th>Last Date</th>
- 	<th>Posted Date</th>
- 	<th>Apply</th>
- 	
- 	</tr>
- 	</thead>
- 	<tbody>
- 	<tr th:each="j :${jinfo}">
- 	<td th:text="${j.id}"></td>
- 	<td th:text="${j.title}"></td>
- 	<td th:text="${j.description}"></td>
- 	<td th:text="${j.location}"></td>
- 	<td th:text="${j.salary}"></td>
- 	<td th:text="${j.jobtype}"></td>
- 	<td th:text="${j.lastdate}"></td>
- 	<td th:text="${j.posteddate}"></td>
- 	<td>
- 	<a th:href="@{/user/applyjob/{id}(id=${j.id})}" class="btn btn-danger btn-sm">
- 	<button class="btn btn-success">Apply</button>
- 	</a>
- 	</td>
- 	
- 	</tr>
- 	</tbody>
- 	
- 	</table>
- </main>
+<main>
+    <!-- Page Header -->
+    <div class="dash-card p-4 mb-4">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3">
+            <div>
+                <div class="d-flex align-items-center gap-2 mb-1">
+                    <span class="badge bg-primary-subtle text-primary fw-semibold px-2 py-1 rounded-pill small">
+                        <i class="ti ti-briefcase"></i> Job Opportunities
+                    </span>
+                    <span class="text-muted small">&bull; <span th:text="${#lists.size(jinfo)}">0</span> Openings Available</span>
+                </div>
+                <h3 class="fw-bold text-dark mb-1">Explore Career Opportunities</h3>
+                <p class="text-muted small mb-0">Discover roles tailored to your skills and qualifications. Apply in one click.</p>
+            </div>
+            <div>
+                <a href="/user/userdash" class="btn btn-sm btn-dash-secondary">
+                    <i class="ti ti-arrow-left"></i> Back to Dashboard
+                </a>
+            </div>
+        </div>
+
+        <!-- Search & Filter Controls -->
+        <div class="mt-4 pt-3 border-top">
+            <div class="row g-2 align-items-center">
+                <div class="col-12 col-md-6 col-lg-8">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white border-end-0 text-muted">
+                            <i class="ti ti-search"></i>
+                        </span>
+                        <input type="text" id="jobSearchInput" class="form-control border-start-0 ps-0" placeholder="Search by job title, location, skill or employment type..." onkeyup="filterJobs()">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 d-flex gap-2">
+                    <select id="typeFilterSelect" class="form-select" onchange="filterJobs()">
+                        <option value="">All Job Types</option>
+                        <option value="Full time">Full Time</option>
+                        <option value="Part time">Part Time</option>
+                        <option value="Internship">Internship</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feedback Message Alert -->
+    <div th:if="${msg}" class="alert alert-dismissible fade show d-flex align-items-center gap-2 mb-4" 
+         th:classappend="${#strings.contains(msg, 'already') ? 'alert-warning' : 'alert-success'}" role="alert">
+        <i th:class="${#strings.contains(msg, 'already') ? 'ti ti-alert-triangle fs-4 text-warning' : 'ti ti-circle-check fs-4 text-success'}"></i>
+        <div class="flex-grow-1">
+            <span th:text="${msg}">Operation completed.</span>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <!-- Job Cards Grid -->
+    <div class="row g-4" id="jobCardsContainer">
+        <div class="col-12 col-md-6 col-xl-4 job-item-col" th:each="j : ${jinfo}"
+             th:attr="data-title=${j.title}, data-location=${j.location}, data-type=${j.jobtype}, data-desc=${j.description}">
+            <div class="dash-card h-100 mb-0 d-flex flex-column justify-content-between p-4 hover-shadow transition">
+                <div>
+                    <!-- Header with Type Badge and ID -->
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <span class="badge-pill" 
+                              th:classappend="${j.jobtype == 'Internship' ? 'badge-amber' : (j.jobtype == 'Part time' ? 'badge-blue' : 'badge-emerald')}" 
+                              th:text="${j.jobtype}">Full Time</span>
+                        <span class="text-muted small">#<span th:text="${j.id}">1</span></span>
+                    </div>
+
+                    <!-- Title & Meta -->
+                    <h5 class="fw-bold text-dark mb-2" th:text="${j.title}">Software Engineer</h5>
+                    <p class="text-muted small mb-3" style="min-height: 48px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;" th:text="${j.description}">
+                        Job description preview text...
+                    </p>
+
+                    <!-- Details Box -->
+                    <div class="bg-light p-3 rounded-3 mb-3 border">
+                        <div class="d-flex align-items-center text-muted small mb-2">
+                            <i class="ti ti-map-pin text-danger me-2 fs-5"></i>
+                            <span class="fw-medium text-dark" th:text="${j.location}">Location</span>
+                        </div>
+                        <div class="d-flex align-items-center text-muted small mb-2">
+                            <i class="ti ti-currency-rupee text-success me-2 fs-5"></i>
+                            <span class="fw-bold text-dark">₹<span th:text="${j.salary}">50,000</span></span>
+                            <span class="text-muted ms-1">/ month</span>
+                        </div>
+                        <div class="d-flex align-items-center text-muted small">
+                            <i class="ti ti-calendar-due text-warning me-2 fs-5"></i>
+                            <span>Deadline: <strong class="text-dark" th:text="${j.lastdate}">15/10/2026</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footer with Posted Date and Apply Button -->
+                <div class="pt-3 border-top d-flex justify-content-between align-items-center">
+                    <small class="text-muted">
+                        <i class="ti ti-clock me-1"></i>Posted: <span th:text="${j.posteddate}">01/09/2026</span>
+                    </small>
+                    <a th:href="@{/user/applyjob/{id}(id=${j.id})}" 
+                       class="btn btn-sm btn-success rounded-pill px-4 shadow-sm"
+                       onclick="return confirm('Do you want to submit your application for this position?');">
+                        Apply Now <i class="ti ti-send ms-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Jobs Placeholder -->
+        <div th:if="${#lists.isEmpty(jinfo)}" class="col-12 text-center py-5">
+            <div class="p-5 bg-white rounded-4 border">
+                <i class="ti ti-briefcase-off fs-1 text-muted d-block mb-3"></i>
+                <h5 class="fw-bold text-dark mb-1">No Job Vacancies Available</h5>
+                <p class="text-muted small mb-0">Please check back later as new positions are posted frequently.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Client-Side Filter JavaScript -->
+    <script>
+        function filterJobs() {
+            const searchVal = document.getElementById('jobSearchInput').value.toLowerCase();
+            const typeVal = document.getElementById('typeFilterSelect').value.toLowerCase();
+            const jobCols = document.querySelectorAll('.job-item-col');
+
+            jobCols.forEach(col => {
+                const title = (col.getAttribute('data-title') || '').toLowerCase();
+                const location = (col.getAttribute('data-location') || '').toLowerCase();
+                const type = (col.getAttribute('data-type') || '').toLowerCase();
+                const desc = (col.getAttribute('data-desc') || '').toLowerCase();
+
+                const matchesSearch = !searchVal || title.includes(searchVal) || location.includes(searchVal) || desc.includes(searchVal) || type.includes(searchVal);
+                const matchesType = !typeVal || type === typeVal;
+
+                if (matchesSearch && matchesType) {
+                    col.style.display = '';
+                } else {
+                    col.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</main>
 </body>
 </html>

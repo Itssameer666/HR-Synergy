@@ -1,0 +1,15 @@
+**/.git
+**/.gitignore
+**/.project
+**/.classpath
+**/.settings
+**/.idea
+**/*.iml
+target/classes
+target/test-classes
+target/generated-sources
+target/maven-status
+target/maven-archiver
+target/*.original
+HELP.md
+docker-compose*.yml
